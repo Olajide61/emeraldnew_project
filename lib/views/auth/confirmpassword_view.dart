@@ -82,7 +82,7 @@ class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
                     ),
                   ),
                   const SizedBox(
-                    height: ,
+                    height: 20,
                   ),
                   CustomisedField(
                     hintText: 'Confirm password',
