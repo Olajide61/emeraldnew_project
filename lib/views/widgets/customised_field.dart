@@ -23,7 +23,7 @@ class CustomisedField extends StatelessWidget {
   final bool? autoFocus;
   final Color? hintColor;
   final Color? borderColor;
-  final Color? fillColor;
+
   final Color? textColor;
   final Color? color;
   final FocusNode? focusNode;
@@ -57,7 +57,6 @@ class CustomisedField extends StatelessWidget {
     this.enabled,
     this.inputFormatters,
     this.hintColor,
-    this.fillColor,
     this.enableCopy = true,
     this.hintText,
     this.color,
@@ -125,7 +124,7 @@ class CustomisedField extends StatelessWidget {
             border: border,
             errorBorder: border,
             enabledBorder: border,
-            focusedBorder: border,
+            focusedBorder: border, 
             focusedErrorBorder: border,
             disabledBorder: border,
           ),

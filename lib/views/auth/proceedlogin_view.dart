@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/auth/confirmpassword_view.dart';
+import 'package:emerald_newproject/views/home/home.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,10 +47,14 @@ class _ProceedLoginViewState extends State<ProceedLoginView> {
                   const SizedBox(
                     height: 73,
                   ),
-                  CustomisedButton('Proceed to login',
-                      onPressed: () {},
-                      buttonColor: AppColors.orange,
-                      textColor: AppColors.white),
+                  CustomisedButton('Proceed to login', onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return const HomeScreen();
+                      }),
+                    );
+                  }, buttonColor: AppColors.orange, textColor: AppColors.white),
                 ],
               ),
             ],

@@ -41,7 +41,7 @@ class CustomisedText extends StatelessWidget {
       overflow: overflow,
       softWrap: true,
       style: TextStyle(
-        fontFamily: 'Open Sans',
+        fontFamily: 'Open',
         color: color,
         letterSpacing: letterSpacing,
         fontSize: fontSize,

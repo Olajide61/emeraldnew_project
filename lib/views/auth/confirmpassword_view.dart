@@ -1,5 +1,4 @@
 import 'package:emerald_newproject/views/auth/proceedlogin_view.dart';
-import 'package:emerald_newproject/views/auth/smsverification_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,9 +14,10 @@ class ConfirmPasswordView extends StatefulWidget {
 }
 
 class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
-  TextEditingController password = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController name = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+
   bool hideText = true;
   bool autoValidate = false;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -69,7 +69,7 @@ class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
                     hintText: 'Create password',
                     textInputType: TextInputType.text,
                     textInputAction: TextInputAction.done,
-                    controller: password,
+                    controller: passwordController,
                     obscureText: hideText,
                     suffixIcon: IconButton(
                       color: AppColors.darkGrey,
@@ -88,7 +88,7 @@ class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
                     hintText: 'Confirm password',
                     textInputType: TextInputType.text,
                     textInputAction: TextInputAction.done,
-                    controller: password,
+                    controller: passwordController,
                     obscureText: hideText,
                     suffixIcon: IconButton(
                       color: AppColors.darkGrey,

@@ -1,4 +1,3 @@
-import 'package:emerald_newproject/views/auth/otp_view.dart';
 import 'package:emerald_newproject/views/auth/smsverification_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,9 +13,10 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  TextEditingController password = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController name = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+ 
+
   bool hideText = true;
   bool autoValidate = false;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -69,7 +69,7 @@ class _LoginViewState extends State<LoginView> {
                     hintText: 'Email',
                     textInputType: TextInputType.text,
                     textInputAction: TextInputAction.next,
-                    controller: email,
+                    controller: emailController,
                   ),
                   const SizedBox(
                     height: 20,
@@ -78,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
                     hintText: 'Confirm password',
                     textInputType: TextInputType.text,
                     textInputAction: TextInputAction.done,
-                    controller: password,
+                    controller: passwordController,
                     obscureText: hideText,
                     suffixIcon: IconButton(
                       color: AppColors.darkGrey,

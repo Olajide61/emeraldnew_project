@@ -1,7 +1,6 @@
 import 'package:emerald_newproject/views/auth/smsverification_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../widgets/color.dart';
 import '../widgets/customised_button.dart';
 

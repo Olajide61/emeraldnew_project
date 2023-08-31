@@ -13,10 +13,9 @@ class CreateView extends StatefulWidget {
 }
 
 class _CreateViewState extends State<CreateView> {
-  TextEditingController phonenumber = TextEditingController();
-  TextEditingController email = TextEditingController();
-
-  TextEditingController name = TextEditingController();
+  TextEditingController phonenumberController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
 
   bool hideText = true;
   bool autoValidate = false;
@@ -69,7 +68,7 @@ class _CreateViewState extends State<CreateView> {
                       hintText: 'Enter full name',
                       textInputType: TextInputType.text,
                       textInputAction: TextInputAction.next,
-                      controller: name,
+                      controller: nameController,
                     ),
                     const SizedBox(
                       height: 20,
@@ -78,7 +77,7 @@ class _CreateViewState extends State<CreateView> {
                       hintText: 'Phone Number',
                       textInputType: TextInputType.text,
                       textInputAction: TextInputAction.next,
-                      controller: phonenumber,
+                      controller: phonenumberController,
                     ),
                     const SizedBox(
                       height: 20,
@@ -87,7 +86,7 @@ class _CreateViewState extends State<CreateView> {
                       hintText: 'Email',
                       textInputType: TextInputType.text,
                       textInputAction: TextInputAction.next,
-                      controller: email,
+                      controller: emailController,
                     ),
                     const SizedBox(
                       height: 48,
