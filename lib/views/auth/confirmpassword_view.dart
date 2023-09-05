@@ -13,11 +13,11 @@ class ConfirmPasswordView extends StatefulWidget {
 }
 
 class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController1 = TextEditingController();
+  TextEditingController passwordController2 = TextEditingController();
 
-  bool hideText = false;
+  bool hideText1 = true;
+  bool hideText2 = true;
 
   bool autoValidate = false;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -69,16 +69,17 @@ class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
                     hintText: 'Create password',
                     textInputType: TextInputType.text,
                     textInputAction: TextInputAction.done,
-                    controller: passwordController,
-                    obscureText: hideText,
+                    controller: passwordController1,
+                    obscureText: hideText1,
                     suffixIcon: IconButton(
                       color: AppColors.darkGrey,
                       onPressed: () {
-                        hideText = !hideText;
-                        setState(() {});
+                        setState(() {
+                          hideText1 = !hideText1;
+                        });
                       },
                       icon: Icon(
-                          hideText ? Icons.visibility_off : Icons.visibility),
+                          hideText1 ? Icons.visibility_off : Icons.visibility),
                     ),
                   ),
                   const SizedBox(
@@ -88,16 +89,16 @@ class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
                     hintText: 'Confirm password',
                     textInputType: TextInputType.text,
                     textInputAction: TextInputAction.done,
-                    controller: passwordController,
-                    obscureText: hideText,
+                    controller: passwordController2,
+                    obscureText: hideText2,
                     suffixIcon: IconButton(
                       color: AppColors.darkGrey,
                       onPressed: () {
-                        hideText = !hideText;
+                        hideText2 = !hideText2;
                         setState(() {});
                       },
                       icon: Icon(
-                          hideText ? Icons.visibility_off : Icons.visibility),
+                          hideText2 ? Icons.visibility_off : Icons.visibility),
                     ),
                   ),
                   const SizedBox(
