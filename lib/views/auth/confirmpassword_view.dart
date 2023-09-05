@@ -1,7 +1,6 @@
 import 'package:emerald_newproject/views/auth/proceedlogin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../widgets/color.dart';
 import '../widgets/customised_button.dart';
 import '../widgets/customised_field.dart';
@@ -18,7 +17,8 @@ class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
   TextEditingController emailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
 
-  bool hideText = true;
+  bool hideText = false;
+
   bool autoValidate = false;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override

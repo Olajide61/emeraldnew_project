@@ -1,6 +1,7 @@
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../widgets/color.dart';
 import '../../../widgets/customised_button.dart';
 
@@ -12,6 +13,7 @@ class FirstStage extends StatefulWidget {
 }
 
 class _FirstStageState extends State<FirstStage> {
+  File? image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,29 +44,50 @@ class _FirstStageState extends State<FirstStage> {
               const SizedBox(
                 height: 32,
               ),
-              Image.asset(
-                'assets/images/live.png',
-                height: 120,
-                width: 120,
+              Container( 
+                child: image == null
+                    ? Image.asset(
+                        'assets/images/live.png',
+                        height: 120,
+                        width: 120,
+                        fit: BoxFit.cover,
+                      )
+                    : Image.file(
+                        image!,
+                        height: 120,
+                        width: 120,
+                        fit: BoxFit.cover,
+                      ),
               ),
               const SizedBox(height: 31.5),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.green),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                height: 43,
-                width: 207,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Capture',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.openSans(
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.green,
+              InkWell(
+                onTap: () async {
+                  final FilePickerResult? result =
+                      await FilePicker.platform.pickFiles(type: FileType.image);
+                  if (result != null) {
+                    image = File(result.files.first.path!);
+
+                    setState(() {});
+                  } else {}
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.green),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  height: 43,
+                  width: 207,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Capture',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.openSans(
+                        textStyle: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.green,
+                        ),
                       ),
                     ),
                   ),

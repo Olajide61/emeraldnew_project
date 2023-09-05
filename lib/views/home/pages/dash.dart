@@ -4,7 +4,6 @@ import 'package:emerald_newproject/views/home/pages/cards/cardcategory/individua
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../kyc_view.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -607,7 +606,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
             ],
           ),
-          SizedBox(height: 70),
+          const SizedBox(height: 70),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 16),
             margin: const EdgeInsets.symmetric(horizontal: 24),

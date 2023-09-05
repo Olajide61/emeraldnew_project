@@ -2,7 +2,6 @@ import 'package:emerald_newproject/views/home/pages/cards/active_card.dart';
 import 'package:emerald_newproject/views/home/pages/cards/disable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../widgets/color.dart';
 
 class CardsPage extends StatefulWidget {
@@ -83,7 +82,9 @@ class _CardsPageState extends State<CardsPage> {
                           child: Text(
                             'Active',
                             style: GoogleFonts.openSans(
-                              color: AppColors.blackb,
+                              color: _currentPage == 0
+                                  ? AppColors.lightOrange
+                                  : AppColors.blackb,
                               textStyle: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -117,7 +118,9 @@ class _CardsPageState extends State<CardsPage> {
                           child: Text(
                             'Disabled',
                             style: GoogleFonts.openSans(
-                              color: AppColors.blackb,
+                              color: _currentPage == 1
+                                  ? AppColors.lightOrange
+                                  : AppColors.blackb,
                               textStyle: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,

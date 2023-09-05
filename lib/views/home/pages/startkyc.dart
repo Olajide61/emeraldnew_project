@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../widgets/color.dart';
 import 'kycstages/firststage.dart';
 import 'kycstages/secondstage.dart';

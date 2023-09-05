@@ -20,7 +20,7 @@ List<UnbordingContent> contents = [
       image: 'assets/fonts/white1.png'),
   UnbordingContent(
       discription:
-          'Your finances are protected, and rewards await as you unlock exclusive discounts',
-      title: 'Shop with Confidence, Save with Wisdom ',
+          'Your finances are protected, and \nrewards await as you unlock \nexclusive discounts',
+      title: 'Shop with Confidence, \nSave with Wisdom ',
       image: 'assets/fonts/white2.png'),
 ];

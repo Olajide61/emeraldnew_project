@@ -35,6 +35,15 @@ dependencies:
   pinput: ^3.0.1
   smooth_page_indicator: ^1.1.0
   carousel_slider: ^4.2.1
+  file_picker: ^5.2.5 
+  cached_network_image:
+  url_launcher: ^6.1.14
+  share: ^2.0.4
+  local_auth: ^2.1.7
+ 
+  
+
+
 
 
   # The following adds the Cupertino Icons font to your application.

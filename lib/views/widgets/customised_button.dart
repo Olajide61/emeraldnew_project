@@ -55,7 +55,7 @@ class CustomisedButton extends StatelessWidget {
                 : BorderSide(color: borderColor ?? buttonColor),
           ),
           child: busy
-              ? Row(
+              ? const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                 )
               : Row(

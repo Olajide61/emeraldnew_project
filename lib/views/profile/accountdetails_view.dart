@@ -2,7 +2,6 @@ import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:emerald_newproject/views/widgets/customised_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../widgets/customised_button.dart';
 
 class AccountDetailsView extends StatefulWidget {
@@ -31,10 +30,23 @@ class _AccountDetailsViewState extends State<AccountDetailsView> {
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 42),
+          padding: const EdgeInsets.only(top: 42, left: 24, right: 24),
           child: SafeArea(
             child: Column(
               children: [
+                Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios_new_outlined,
+                        color: AppColors.darkorange,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
                 CircleAvatar(
                   backgroundImage: const AssetImage('assets/images/head.png'),
                   radius: 50,

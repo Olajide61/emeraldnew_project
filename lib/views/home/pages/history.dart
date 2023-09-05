@@ -3,7 +3,6 @@ import 'package:emerald_newproject/views/home/pages/purchase_page.dart';
 import 'package:emerald_newproject/views/home/pages/topup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../widgets/color.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -87,7 +86,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                 child: Text(
                                   'All',
                                   style: GoogleFonts.openSans(
-                                    color: AppColors.blackb,
+                                    color: _currentPage == 0
+                                        ? AppColors.lightOrange
+                                        : AppColors.blackb,
                                     textStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
@@ -120,7 +121,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                 child: Text(
                                   'Top-up',
                                   style: GoogleFonts.openSans(
-                                    color: AppColors.blackb,
+                                    color: _currentPage == 1
+                                        ? AppColors.lightOrange
+                                        : AppColors.blackb,
                                     textStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
@@ -154,7 +157,9 @@ class _HistoryPageState extends State<HistoryPage> {
                                 child: Text(
                                   'Purchase',
                                   style: GoogleFonts.openSans(
-                                    color: AppColors.blackb,
+                                    color: _currentPage == 2
+                                        ? AppColors.lightOrange
+                                        : AppColors.blackb,
                                     textStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,

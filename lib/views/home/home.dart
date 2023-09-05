@@ -1,7 +1,6 @@
 import 'package:emerald_newproject/views/home/pages/cards.dart';
 import 'package:emerald_newproject/views/home/pages/dash.dart';
 import 'package:emerald_newproject/views/home/pages/history.dart';
-import 'package:emerald_newproject/views/home/pages/person.dart';
 import 'package:emerald_newproject/views/profile/profile.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
     const CardsPage(),
     const HistoryPage(),
     const ProfilePage(),
-    const PesronPage(),
   ];
   int _selectedIndex = 0;
   @override

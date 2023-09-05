@@ -91,14 +91,8 @@ class _CreateViewState extends State<CreateView> {
                     const SizedBox(
                       height: 48,
                     ),
-                    CustomisedButton('Create', onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) {
-                          return const LoginView();
-                        }),
-                      );
-                    },
+                    CustomisedButton('Create',
+                        onPressed: () {},
                         buttonColor: AppColors.orange,
                         textColor: AppColors.white),
                     const SizedBox(
@@ -120,13 +114,23 @@ class _CreateViewState extends State<CreateView> {
                         const SizedBox(
                           width: 4,
                         ),
-                        Text(
-                          'Login',
-                          style: GoogleFonts.openSans(
-                            textStyle: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.orange,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return const LoginView();
+                              }),
+                            );
+                          },
+                          child: Text(
+                            'Login',
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.orange,
+                              ),
                             ),
                           ),
                         ),

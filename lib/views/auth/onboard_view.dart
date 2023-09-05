@@ -1,9 +1,9 @@
 import 'package:emerald_newproject/views/auth/create_view.dart';
+import 'package:emerald_newproject/views/auth/login_view.dart';
 import 'package:emerald_newproject/views/widgets/content_model.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../widgets/color.dart';
 
 class OnboardScreen extends StatefulWidget {
@@ -28,7 +28,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
         child: Stack(
           children: [
             PageView.builder(
-              itemCount: 3,
+              itemCount: contents.length,
               onPageChanged: (a) {
                 _currentPage = a;
                 setState(() {});
@@ -36,83 +36,82 @@ class _OnboardScreenState extends State<OnboardScreen> {
               itemBuilder: (_, i) {
                 return Padding(
                   padding: const EdgeInsets.all(30.0),
-                  child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 60),
+                      Container(
+                        height: 297.64,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                            color: AppColors.white),
+                        child: Image(
+                          image: AssetImage(
+                              'assets/images/image$_currentPage.png'),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 52,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            contents[i].title,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w800,
+                                  color: AppColors.orange),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Text(
+                            contents[i].discription,
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.darkGrey),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      dot(_currentPage == 0),
+                      dot(_currentPage == 1),
+                      dot(_currentPage == 2),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 24, top: 44.36, right: 24, bottom: 44),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 60),
-                        Container(
-                          height: 297.64,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              color: Colors.white),
-                          child: Image(
-                            image: AssetImage(
-                                'assets/images/image$_currentPage.png'),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 52,
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              contents[i].title,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.w800,
-                                    color: AppColors.orange),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            Text(
-                              contents[i].discription,
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.darkGrey),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 44.36,
-                            )
-                          ],
-                        ),
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  dot(_currentPage == 0),
-                                  dot(_currentPage == 1),
-                                  dot(_currentPage == 2),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 3,
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 44.0,
-                        ),
                         CustomisedButton('Create an account', onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) {
-                              return const CreateView();
-                            }),
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const CreateView();
+                              },
+                            ),
                           );
                         },
                             buttonColor: AppColors.orange,
@@ -136,23 +135,33 @@ class _OnboardScreenState extends State<OnboardScreen> {
                             const SizedBox(
                               width: 4,
                             ),
-                            Text(
-                              'Login',
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  color: AppColors.orange,
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return const LoginView();
+                                  }),
+                                );
+                              },
+                              child: Text(
+                                'Login',
+                                style: GoogleFonts.openSans(
+                                  textStyle: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                    color: AppColors.orange,
+                                  ),
                                 ),
                               ),
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
-                );
-              },
+                ],
+              ),
             ),
           ],
         ),

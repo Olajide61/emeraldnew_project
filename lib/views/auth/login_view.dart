@@ -1,3 +1,4 @@
+import 'package:emerald_newproject/views/auth/create_view.dart';
 import 'package:emerald_newproject/views/auth/smsverification_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +16,6 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
- 
 
   bool hideText = true;
   bool autoValidate = false;
@@ -138,13 +138,23 @@ class _LoginViewState extends State<LoginView> {
                       const SizedBox(
                         width: 4,
                       ),
-                      Text(
-                        'Register',
-                        style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.orange,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return const CreateView();
+                            }),
+                          );
+                        },
+                        child: Text(
+                          'Register',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.orange,
+                            ),
                           ),
                         ),
                       ),
