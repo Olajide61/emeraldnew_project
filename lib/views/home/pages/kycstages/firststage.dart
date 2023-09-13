@@ -14,6 +14,7 @@ class FirstStage extends StatefulWidget {
 
 class _FirstStageState extends State<FirstStage> {
   int _currentPage = 0;
+  bool isButtonActive = false;
   final PageController _controller = PageController(initialPage: 0);
   File? image;
   @override
@@ -69,7 +70,9 @@ class _FirstStageState extends State<FirstStage> {
                   if (result != null) {
                     image = File(result.files.first.path!);
 
-                    setState(() {});
+                    setState(() {
+                      isButtonActive = true;
+                    });
                   } else {}
                 },
                 child: Container(
@@ -112,7 +115,7 @@ class _FirstStageState extends State<FirstStage> {
                 height: 16,
               ),
               CustomisedButton('Next', onPressed: () {
-                if (_currentPage > 2) {
+                if (_currentPage < 2) {
                   _controller.animateToPage(_currentPage + 1,
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.linear);
@@ -120,7 +123,10 @@ class _FirstStageState extends State<FirstStage> {
                     _currentPage++;
                   });
                 } else {}
-              }, buttonColor: AppColors.pink, textColor: AppColors.white),
+              },
+                  buttonColor:
+                      isButtonActive ? AppColors.orange : AppColors.pink,
+                  textColor: AppColors.white),
             ],
           ),
         ),

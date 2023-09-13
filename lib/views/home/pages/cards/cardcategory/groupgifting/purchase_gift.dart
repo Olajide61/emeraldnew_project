@@ -13,6 +13,7 @@ class PurchaseGiftsView extends StatefulWidget {
 }
 
 class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
+  int height = 200000;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,11 +91,40 @@ class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
               Padding(
                 padding: const EdgeInsets.only(left: 24, right: 24),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const CustomisedField(
                       hintText: 'Target Amount',
                       textInputType: TextInputType.text,
                       textInputAction: TextInputAction.next,
+                    ),
+                    const SizedBox(height: 28),
+                    Text(
+                      'Available Amount',
+                      style: GoogleFonts.openSans(
+                        textStyle: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.db,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Slider(
+                        value: height.toDouble(),
+                        max: 200000,
+                        activeColor: AppColors.green,
+                        inactiveColor: AppColors.w,
+                        onChanged: (double newValue) {
+                          setState(() {
+                            height = newValue.round();
+                          });
+                        }),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(height.toString()),
+                      ],
                     ),
                     const SizedBox(
                       height: 256.42,

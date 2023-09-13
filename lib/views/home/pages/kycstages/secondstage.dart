@@ -15,6 +15,7 @@ class _SecondStageState extends State<SecondStage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -27,10 +28,11 @@ class _SecondStageState extends State<SecondStage> {
         ),
         child: Padding(
           padding: const EdgeInsets.only(top: 34, right: 24),
-          child: Column(
+          child: ListView(
             children: [
               Text(
                 'Stage 2: BVN Validation',
+                textAlign: TextAlign.center,
                 style: GoogleFonts.openSans(
                   color: AppColors.black,
                   textStyle: const TextStyle(
@@ -52,6 +54,7 @@ class _SecondStageState extends State<SecondStage> {
               ),
               Text(
                 'By clicking on Next, its saves and next',
+                textAlign: TextAlign.center,
                 style: GoogleFonts.openSans(
                   color: AppColors.blackbb,
                   textStyle: const TextStyle(

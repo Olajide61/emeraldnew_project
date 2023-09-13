@@ -178,8 +178,9 @@ class _KycStartViewState extends State<KycStartView> {
                   physics: const NeverScrollableScrollPhysics(),
                   controller: _controller,
                   onPageChanged: (a) {
-                    _currentPage = a;
-                    setState(() {});
+                    setState(() {
+                      _currentPage = a;
+                    });
                   },
                   children: const [
                     FirstStage(),

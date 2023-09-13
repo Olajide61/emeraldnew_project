@@ -5,6 +5,7 @@ import 'package:emerald_newproject/views/profile/accountdetails_view.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import '../kyc_view.dart';
 
 class DashboardPage extends StatefulWidget {
