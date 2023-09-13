@@ -146,10 +146,11 @@ class _HistoryPageState extends State<HistoryPage> {
                                     ? AppColors.pryorange
                                     : AppColors.white,
                                 borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(6),
-                                    topRight: Radius.circular(6),
-                                    bottomLeft: Radius.circular(6),
-                                    bottomRight: Radius.circular(6)),
+                                  topLeft: Radius.circular(6),
+                                  topRight: Radius.circular(6),
+                                  bottomLeft: Radius.circular(6),
+                                  bottomRight: Radius.circular(6),
+                                ),
                               ),
                               height: 44,
                               width: 114,

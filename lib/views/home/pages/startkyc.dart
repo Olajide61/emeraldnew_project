@@ -14,7 +14,7 @@ class KycStartView extends StatefulWidget {
 
 class _KycStartViewState extends State<KycStartView> {
   int _currentPage = 0;
-  final PageController _controller = PageController();
+  final PageController _controller = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,6 +174,8 @@ class _KycStartViewState extends State<KycStartView> {
               ),
               Expanded(
                 child: PageView(
+                  scrollDirection: Axis.horizontal,
+                  physics: const NeverScrollableScrollPhysics(),
                   controller: _controller,
                   onPageChanged: (a) {
                     _currentPage = a;

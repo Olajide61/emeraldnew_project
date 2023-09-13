@@ -1,4 +1,5 @@
 import 'package:emerald_newproject/core/apis/local_auth_api.dart';
+import 'package:emerald_newproject/views/auth/splash.dart';
 import 'package:emerald_newproject/views/profile/accountdetails_view.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
@@ -255,6 +256,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         const Spacer(),
                         Switch(
+                            activeColor: AppColors.orange,
                             value: _isFingerprintEnabled,
                             onChanged: _toggleFingerprint)
                       ],
@@ -456,7 +458,14 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return const SplashScreen();
+                      }),
+                    );
+                  },
                   child: Container(
                     height: 38,
                     width: 168,

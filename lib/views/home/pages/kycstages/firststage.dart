@@ -13,6 +13,8 @@ class FirstStage extends StatefulWidget {
 }
 
 class _FirstStageState extends State<FirstStage> {
+  int _currentPage = 0;
+  final PageController _controller = PageController(initialPage: 0);
   File? image;
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class _FirstStageState extends State<FirstStage> {
               const SizedBox(
                 height: 32,
               ),
-              Container( 
+              ClipOval(
                 child: image == null
                     ? Image.asset(
                         'assets/images/live.png',
@@ -109,10 +111,16 @@ class _FirstStageState extends State<FirstStage> {
               const SizedBox(
                 height: 16,
               ),
-              CustomisedButton('Next',
-                  onPressed: () {},
-                  buttonColor: AppColors.pink,
-                  textColor: AppColors.white),
+              CustomisedButton('Next', onPressed: () {
+                if (_currentPage > 2) {
+                  _controller.animateToPage(_currentPage + 1,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.linear);
+                  setState(() {
+                    _currentPage++;
+                  });
+                } else {}
+              }, buttonColor: AppColors.pink, textColor: AppColors.white),
             ],
           ),
         ),

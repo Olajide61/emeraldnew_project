@@ -46,7 +46,7 @@ class _FirstPageState extends State<FirstPage> {
             ),
             const SizedBox(height: 32),
             Padding(
-              padding: const EdgeInsets.only(right: 24),
+              padding: const EdgeInsets.only(left: 24, right: 24),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,15 +87,17 @@ class _FirstPageState extends State<FirstPage> {
                       Image.asset(
                         'assets/images/cardatm.png',
                         width: 159,
-                        height: 106.862,
+                        height: 106.86,
                       ),
                       const SizedBox(
                         width: 24,
                       ),
-                      Image.asset(
-                        'assets/images/backatm.png',
-                        width: 159,
-                        height: 106.862,
+                      Expanded(
+                        child: Image.asset(
+                          'assets/images/backatm.png',
+                          width: 159,
+                          height: 106.86,
+                        ),
                       ),
                     ],
                   ),
@@ -103,12 +105,14 @@ class _FirstPageState extends State<FirstPage> {
                   Row(
                     children: [
                       Image.asset('assets/images/newcard.png',
-                          width: 159, height: 106.862),
+                          width: 159, height: 106.86),
                       const SizedBox(
                         width: 24,
                       ),
-                      Image.asset('assets/images/card2.png',
-                          width: 159, height: 106.862),
+                      Expanded(
+                        child: Image.asset('assets/images/card2.png',
+                            width: 159, height: 106.86),
+                      ),
                     ],
                   ),
                   const SizedBox(

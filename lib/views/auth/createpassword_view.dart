@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/auth/smsverification_view.dart';
+import 'package:emerald_newproject/views/auth/confirmpassword_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/color.dart';
@@ -51,7 +51,7 @@ class _CreatePasswordViewState extends State<CreatePasswordView> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) {
-                      return const SmsVerificationView();
+                      return const ConfirmPasswordView();
                     }),
                   );
                 }, buttonColor: AppColors.orange, textColor: AppColors.white),

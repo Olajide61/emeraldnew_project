@@ -1,6 +1,7 @@
 import 'package:emerald_newproject/views/home/notification.dart';
 import 'package:emerald_newproject/views/home/pages/cards/cardcategory/group.dart';
 import 'package:emerald_newproject/views/home/pages/cards/cardcategory/individual.dart';
+import 'package:emerald_newproject/views/profile/accountdetails_view.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,12 +46,20 @@ class _DashboardPageState extends State<DashboardPage> {
                         padding: const EdgeInsets.only(top: 34, right: 16),
                         child: Row(
                           children: [
-                            CircleAvatar(
-                              backgroundImage:
-                                  const AssetImage('assets/images/head.png'),
-                              child: Container(
-                                height: 48,
-                                width: 48,
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const AccountDetailsView();
+                                }));
+                              },
+                              child: CircleAvatar(
+                                backgroundImage:
+                                    const AssetImage('assets/images/head.png'),
+                                child: Container(
+                                  height: 48,
+                                  width: 48,
+                                ),
                               ),
                             ),
                             const SizedBox(width: 22),
@@ -653,6 +662,44 @@ class _DashboardPageState extends State<DashboardPage> {
                   ],
                 ),
               ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 24, right: 24, top: 16.47),
+            child: Row(
+              children: [
+                Text(
+                  'Recent transactions',
+                  style: GoogleFonts.openSans(
+                    textStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.black,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.pinky,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  height: 24,
+                  width: 67,
+                  child: Center(
+                    child: Text(
+                      'See all',
+                      style: GoogleFonts.openSans(
+                        textStyle: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.darkorange,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
         ],

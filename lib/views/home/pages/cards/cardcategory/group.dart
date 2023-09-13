@@ -12,6 +12,12 @@ class GroupCardView extends StatefulWidget {
 }
 
 class _GroupCardViewState extends State<GroupCardView> {
+  final List<String> image = [
+    'assets/images/white0.png'
+        'assets/images/white0.png'
+        'assets/images/white0.png'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +32,7 @@ class _GroupCardViewState extends State<GroupCardView> {
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 24, top: 49),
+          padding: const EdgeInsets.only(top: 32, left: 24),
           child: Column(
             children: [
               Row(
@@ -41,7 +47,7 @@ class _GroupCardViewState extends State<GroupCardView> {
                     },
                   ),
                   const SizedBox(
-                    width: 85,
+                    width: 82,
                   ),
                   Text(
                     'Group Gifting',
@@ -56,15 +62,20 @@ class _GroupCardViewState extends State<GroupCardView> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 25, top: 46),
+                padding: const EdgeInsets.only(top: 46),
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const GroupGiftView();
-                        }));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const GroupGiftView();
+                            },
+                          ),
+                        );
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -95,10 +106,14 @@ class _GroupCardViewState extends State<GroupCardView> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const JoinGiftView();
-                        }));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const JoinGiftView();
+                            },
+                          ),
+                        );
                       },
                       child: Container(
                         decoration: BoxDecoration(

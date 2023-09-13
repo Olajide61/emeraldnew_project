@@ -44,10 +44,11 @@ class _IndvidualCardViewState extends State<IndvidualCardView> {
                     },
                   ),
                   const SizedBox(
-                    width: 85,
+                    width: 103,
                   ),
                   Text(
                     'Buy Card',
+                    textAlign: TextAlign.center,
                     style: GoogleFonts.openSans(
                       textStyle: TextStyle(
                         fontSize: 20,

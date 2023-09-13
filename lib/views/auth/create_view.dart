@@ -1,4 +1,5 @@
 import 'package:emerald_newproject/views/auth/login_view.dart';
+import 'package:emerald_newproject/views/auth/smsverification_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/color.dart';
@@ -84,15 +85,20 @@ class _CreateViewState extends State<CreateView> {
                     ),
                     CustomisedField(
                       hintText: 'Email',
-                      textInputType: TextInputType.text,
+                      textInputType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                       controller: emailController,
                     ),
                     const SizedBox(
                       height: 48,
                     ),
-                    CustomisedButton('Create',
-                        onPressed: () {},
+                    CustomisedButton('Create', onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const SmsVerificationView();
+                        },
+                      ));
+                    },
                         buttonColor: AppColors.orange,
                         textColor: AppColors.white),
                     const SizedBox(

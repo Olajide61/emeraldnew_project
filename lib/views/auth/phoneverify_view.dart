@@ -1,4 +1,5 @@
-import 'package:emerald_newproject/views/auth/confirmpassword_view.dart';
+
+import 'package:emerald_newproject/views/auth/otp_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/color.dart';
@@ -50,7 +51,7 @@ class _PhoneVerifyViewState extends State<PhoneVerifyView> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return const ConfirmPasswordView();
+                        return const OtpView();
                       }),
                     );
                   }, buttonColor: AppColors.orange, textColor: AppColors.white),

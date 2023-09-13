@@ -12,6 +12,8 @@ class JoinGiftView extends StatefulWidget {
 }
 
 class _JoinGiftViewState extends State<JoinGiftView> {
+  final List<String> image = ['assets/images/head.png'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

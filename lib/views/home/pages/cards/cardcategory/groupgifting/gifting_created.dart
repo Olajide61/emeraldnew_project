@@ -1,3 +1,4 @@
+import 'package:emerald_newproject/views/home/pages/cards.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../../widgets/color.dart';
@@ -317,8 +318,16 @@ class _GiftingCreatedViewState extends State<GiftingCreatedView> {
               const SizedBox(
                 height: 19,
               ),
-              CustomisedButton('Go to Dashboard',
-                  onPressed: () {},
+              CustomisedButton('Go to Dashboard', onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const CardsPage();
+                    },
+                  ),
+                );
+              },
                   buttonColor: AppColors.white,
                   borderColor: AppColors.darkyorange,
                   textColor: AppColors.darkorange),
