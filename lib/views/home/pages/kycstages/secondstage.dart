@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../widgets/color.dart';
 import '../../../widgets/customised_button.dart';
 import '../../../widgets/customised_field.dart';
 
 class SecondStage extends StatefulWidget {
-  const SecondStage({super.key});
+  const SecondStage({super.key, required this.controller});
+  final PageController controller;
 
   @override
   State<SecondStage> createState() => _SecondStageState();
 }
 
 class _SecondStageState extends State<SecondStage> {
+  TextEditingController bvn = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +47,15 @@ class _SecondStageState extends State<SecondStage> {
               const SizedBox(
                 height: 69,
               ),
-              const CustomisedField(
+              CustomisedField(
                 hintText: 'Enter BVN Number',
-                textInputType: TextInputType.text,
-                textInputAction: TextInputAction.next,
+                maxLength: 11,
+                controller: bvn,
+                textInputType: TextInputType.number,
+                textInputAction: TextInputAction.done,
+                onChanged: (a) {
+                  setState(() {});
+                },
               ),
               const SizedBox(
                 height: 212,
@@ -66,10 +74,19 @@ class _SecondStageState extends State<SecondStage> {
               const SizedBox(
                 height: 16,
               ),
-              CustomisedButton('Next',
-                  onPressed: () {},
-                  buttonColor: AppColors.pink,
-                  textColor: AppColors.white),
+              CustomisedButton(
+                'Next',
+                onPressed: bvn.text.length == 11
+                    ? () {
+                        widget.controller.nextPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.linear,
+                        );
+                      }
+                    : null,
+                buttonColor: AppColors.orange,
+                textColor: AppColors.white,
+              ),
             ],
           ),
         ),

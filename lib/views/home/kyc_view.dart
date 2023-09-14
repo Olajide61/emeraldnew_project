@@ -1,6 +1,7 @@
 import 'package:emerald_newproject/views/home/pages/startkyc.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../widgets/color.dart';
 import '../widgets/customised_button.dart';
 
@@ -15,6 +16,30 @@ class _KycViewState extends State<KycView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: AppColors.darkorange,
+          ),
+        ),
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: Text(
+          'KYC',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.openSans(
+            textStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black,
+            ),
+          ),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -29,31 +54,6 @@ class _KycViewState extends State<KycView> {
           padding: const EdgeInsets.only(left: 24, top: 49, right: 24),
           child: Column(
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: AppColors.darkorange,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const SizedBox(width: 85),
-                  Text(
-                    'KYC',
-                    style: GoogleFonts.openSans(
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 63.51),
               Image.asset('assets/images/kyc.png'),
               const SizedBox(height: 71.67),
               Text(

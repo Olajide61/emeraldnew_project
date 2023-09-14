@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:emerald_newproject/views/home/notification.dart';
 import 'package:emerald_newproject/views/home/pages/cards/cardcategory/group.dart';
 import 'package:emerald_newproject/views/home/pages/cards/cardcategory/individual.dart';
@@ -5,7 +6,7 @@ import 'package:emerald_newproject/views/profile/accountdetails_view.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
 import '../kyc_view.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -15,9 +16,8 @@ class DashboardPage extends StatefulWidget {
   State<DashboardPage> createState() => _DashboardPageState();
 }
 
-int _currentPage = 0;
-
 class _DashboardPageState extends State<DashboardPage> {
+  int _index = 0;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -109,21 +109,26 @@ class _DashboardPageState extends State<DashboardPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 24.14,
+                      const SizedBox(height: 24.14),
+                      CarouselSlider(
+                        items: [1, 2, 3]
+                            .map(
+                              (e) => Image.asset(
+                                'assets/images/atm.png',
+                                height: 157,
+                              ),
+                            )
+                            .toList(),
+                        options: CarouselOptions(
+                            height: 160,
+                            // autoPlay: true,
+                            enlargeCenterPage: true,
+                            onPageChanged: (a, _) {
+                              _index = a;
+                              setState(() {});
+                            }),
                       ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            'assets/images/atm.png',
-                            height: 157,
-                            width: 302,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 14.04,
-                      ),
+                      const SizedBox(height: 14.04),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Column(
@@ -133,9 +138,9 @@ class _DashboardPageState extends State<DashboardPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                dot(_currentPage == 0),
-                                dot(_currentPage == 1),
-                                dot(_currentPage == 2),
+                                dot(_index == 0),
+                                dot(_index == 1),
+                                dot(_index == 2),
                               ],
                             ),
                           ],

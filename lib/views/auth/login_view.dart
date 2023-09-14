@@ -1,7 +1,8 @@
 import 'package:emerald_newproject/views/auth/create_view.dart';
-import 'package:emerald_newproject/views/auth/smsverification_view.dart';
+import 'package:emerald_newproject/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../widgets/color.dart';
 import '../widgets/customised_button.dart';
 import '../widgets/customised_field.dart';
@@ -112,11 +113,12 @@ class _LoginViewState extends State<LoginView> {
                     height: 16,
                   ),
                   CustomisedButton('Login', onPressed: () {
-                    Navigator.push(
+                    Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return const SmsVerificationView();
+                        return const HomeScreen();
                       }),
+                      (a) => false,
                     );
                   }, buttonColor: AppColors.orange, textColor: AppColors.white),
                   const SizedBox(

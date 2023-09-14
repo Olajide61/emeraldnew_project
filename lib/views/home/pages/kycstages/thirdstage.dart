@@ -1,13 +1,14 @@
 import 'package:emerald_newproject/views/home/pages/kycstages/kycsuccessful.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../widgets/color.dart';
 import '../../../widgets/customised_button.dart';
 import '../../../widgets/customised_field.dart';
 
 class ThirdStage extends StatefulWidget {
-  const ThirdStage({super.key});
-
+  const ThirdStage({super.key, required this.controller});
+  final PageController controller;
   @override
   State<ThirdStage> createState() => _ThirdStageState();
 }
@@ -44,9 +45,7 @@ class _ThirdStageState extends State<ThirdStage> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 32,
-              ),
+              const SizedBox(height: 32),
               CustomisedField(
                 suffixIcon: Padding(
                   padding: const EdgeInsets.all(11),
@@ -56,6 +55,7 @@ class _ThirdStageState extends State<ThirdStage> {
                     size: 24,
                   ),
                 ),
+                enabled: false,
                 hintText: 'Document Type',
                 textInputType: TextInputType.text,
                 textInputAction: TextInputAction.next,
@@ -81,14 +81,20 @@ class _ThirdStageState extends State<ThirdStage> {
                 ),
               ),
               const SizedBox(height: 530),
-              CustomisedButton('Save', onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return const KycSuccessfulView();
-                  }),
-                );
-              }, buttonColor: AppColors.orange, textColor: AppColors.white),
+              CustomisedButton(
+                'Save',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return const KycSuccessfulView();
+                    }),
+                  );
+                },
+                buttonColor: AppColors.orange,
+                textColor: AppColors.white,
+              ),
+              const SizedBox(height: 32),
             ],
           ),
         ),

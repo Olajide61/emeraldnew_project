@@ -1,12 +1,15 @@
 import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../widgets/color.dart';
 import '../../../widgets/customised_button.dart';
 
 class FirstStage extends StatefulWidget {
-  const FirstStage({super.key});
+  const FirstStage({super.key, required this.controller});
+  final PageController controller;
 
   @override
   State<FirstStage> createState() => _FirstStageState();
@@ -15,7 +18,6 @@ class FirstStage extends StatefulWidget {
 class _FirstStageState extends State<FirstStage> {
   int _currentPage = 0;
   bool isButtonActive = false;
-  final PageController _controller = PageController(initialPage: 0);
   File? image;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class _FirstStageState extends State<FirstStage> {
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 32, right: 24),
+          padding: const EdgeInsets.only(top: 32, right: 24, left: 24),
           child: Column(
             children: [
               Text(
@@ -114,19 +116,22 @@ class _FirstStageState extends State<FirstStage> {
               const SizedBox(
                 height: 16,
               ),
-              CustomisedButton('Next', onPressed: () {
-                if (_currentPage < 2) {
-                  _controller.animateToPage(_currentPage + 1,
+              CustomisedButton(
+                'Next',
+                onPressed: () {
+                  if (_currentPage < 2) {
+                    widget.controller.nextPage(
                       duration: const Duration(milliseconds: 300),
-                      curve: Curves.linear);
-                  setState(() {
-                    _currentPage++;
-                  });
-                } else {}
-              },
-                  buttonColor:
-                      isButtonActive ? AppColors.orange : AppColors.pink,
-                  textColor: AppColors.white),
+                      curve: Curves.linear,
+                    );
+                    setState(() {
+                      _currentPage++;
+                    });
+                  } else {}
+                },
+                buttonColor: isButtonActive ? AppColors.orange : AppColors.pink,
+                textColor: AppColors.white,
+              ),
             ],
           ),
         ),
