@@ -1,5 +1,5 @@
 import 'package:emerald_newproject/views/auth/create_view.dart';
-import 'package:emerald_newproject/views/auth/login_view.dart';
+import 'package:emerald_newproject/views/home/home.dart';
 import 'package:emerald_newproject/views/widgets/content_model.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:flutter/material.dart';
@@ -140,7 +140,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) {
-                                    return const LoginView();
+                                    return const HomeScreen();
                                   }),
                                 );
                               },

@@ -30,6 +30,7 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
               padding: const EdgeInsets.only(top: 34),
               child: Text(
                 'Stage 1: Select card',
+                textAlign: TextAlign.center,
                 style: GoogleFonts.openSans(
                   color: AppColors.black,
                   textStyle: const TextStyle(
@@ -40,115 +41,120 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
               ),
             ),
             const SizedBox(height: 32),
-            Padding(
-              padding: const EdgeInsets.only(right: 24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomisedField(
-                    hintText: 'Select GiftCard Type',
-                    suffixIcon: IconButton(
-                      icon: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Image(
-                          image: AssetImage('assets/images/drop.png'),
-                        ),
-                      ),
-                      onPressed: () {},
-                    ),
-                    textInputType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  Text(
-                    'Select GiftCard Design',
-                    style: GoogleFonts.openSans(
-                      color: AppColors.darkGrey,
-                      textStyle: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomisedField(
+                  enabled: false,
+                  hintText: 'Select GiftCard Type',
+                  suffixIcon: IconButton(
+                    icon: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Image(
+                        image: AssetImage('assets/images/drop.png'),
                       ),
                     ),
+                    onPressed: () {},
                   ),
-                  const SizedBox(
-                    height: 16,
+                  textInputType: TextInputType.text,
+                  textInputAction: TextInputAction.next,
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Text(
+                  'Select GiftCard Design',
+                  style: GoogleFonts.openSans(
+                    color: AppColors.darkGrey,
+                    textStyle: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Image.asset(
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Image.asset(
                         'assets/images/cardatm.png',
                         width: 159,
                         height: 106.862,
                       ),
-                      const SizedBox(
-                        width: 24,
-                      ),
-                      Image.asset(
+                    ),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: Image.asset(
                         'assets/images/backatm.png',
                         width: 159,
                         height: 106.862,
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 24),
-                  Row(
-                    children: [
-                      Image.asset('assets/images/newcard.png',
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Image.asset('assets/images/newcard.png',
                           width: 159, height: 106.862),
-                      const SizedBox(
-                        width: 24,
+                    ),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: Image.asset('assets/images/card2.png',
+                          width: 159, height: 106.862),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'GiftCard Cost',
+                      style: GoogleFonts.openSans(
+                        color: AppColors.darkGrey,
+                        textStyle: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                      Image.asset('assets/images/card2.png',
-                          width: 159, height: 106.862),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'GiftCard Cost',
+                    ),
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 24),
+                      child: Text(
+                        '₦‎ 2,000.00',
                         style: GoogleFonts.openSans(
                           color: AppColors.darkGrey,
                           textStyle: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 24),
-                        child: Text(
-                          '₦‎ 2,000.00',
-                          style: GoogleFonts.openSans(
-                            color: AppColors.darkGrey,
-                            textStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  Column(
-                    children: [
-                      CustomisedButton('Next',
-                          onPressed: () {},
-                          buttonColor: AppColors.orange,
-                          textColor: AppColors.white),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                Column(
+                  children: [
+                    CustomisedButton('Next',
+                        onPressed: () {},
+                        buttonColor: AppColors.orange,
+                        textColor: AppColors.white),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

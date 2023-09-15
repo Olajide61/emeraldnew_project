@@ -24,7 +24,7 @@ class _AllPageState extends State<AllPage> {
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: const EdgeInsets.only(top: 24),
           child: ListView(children: [
             Row(
               children: [

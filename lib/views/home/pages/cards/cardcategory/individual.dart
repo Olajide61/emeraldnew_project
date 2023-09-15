@@ -18,6 +18,29 @@ class _IndvidualCardViewState extends State<IndvidualCardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: AppColors.orange,
+          ),
+        ),
+        title: Text(
+          'Buy Card',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.openSans(
+            textStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black,
+            ),
+          ),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -29,160 +52,105 @@ class _IndvidualCardViewState extends State<IndvidualCardView> {
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 24, top: 49),
+          padding: const EdgeInsets.only(left: 24, right: 24, top: 24),
           child: Column(
             children: [
               Row(
                 children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: AppColors.darkorange,
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _currentPage == 0 ? AppColors.green : AppColors.w,
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                    height: 30,
+                    width: 30,
+                    child: Center(
+                      child: Text(
+                        '1',
+                        style: GoogleFonts.openSans(
+                          color: AppColors.white,
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                  const SizedBox(
-                    width: 103,
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(color: AppColors.blackb),
+                      height: 1,
+                    ),
                   ),
-                  Text(
-                    'Buy Card',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.openSans(
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.black,
+                  const SizedBox(width: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color:
+                            _currentPage == 1 ? AppColors.green : AppColors.w),
+                    height: 30,
+                    width: 30,
+                    child: Center(
+                      child: Text(
+                        '2',
+                        style: GoogleFonts.openSans(
+                          color: AppColors.white,
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(color: AppColors.blackb),
+                      height: 1,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color:
+                            _currentPage == 2 ? AppColors.green : AppColors.w),
+                    height: 30,
+                    width: 30,
+                    child: Center(
+                      child: Text(
+                        '3',
+                        style: GoogleFonts.openSans(
+                          color: AppColors.white,
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 60, top: 32),
-                child: Row(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        _controller.animateToPage(0,
-                            duration: const Duration(milliseconds: 100),
-                            curve: Curves.linear);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color:
-                              _currentPage == 0 ? AppColors.green : AppColors.w,
-                        ),
-                        height: 30,
-                        width: 30,
-                        child: Center(
-                          child: Text(
-                            '1',
-                            style: GoogleFonts.openSans(
-                              color: AppColors.white,
-                              textStyle: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(color: AppColors.blackb),
-                      width: 70,
-                      height: 1,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        _controller.animateToPage(1,
-                            duration: const Duration(milliseconds: 100),
-                            curve: Curves.linear);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: _currentPage == 1
-                                ? AppColors.green
-                                : AppColors.w),
-                        height: 30,
-                        width: 30,
-                        child: Center(
-                          child: Text(
-                            '2',
-                            style: GoogleFonts.openSans(
-                              color: AppColors.white,
-                              textStyle: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(color: AppColors.blackb),
-                      width: 70,
-                      height: 1,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        _controller.animateToPage(2,
-                            duration: const Duration(milliseconds: 100),
-                            curve: Curves.linear);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: _currentPage == 2
-                                ? AppColors.green
-                                : AppColors.w),
-                        height: 30,
-                        width: 30,
-                        child: Center(
-                          child: Text(
-                            '3',
-                            style: GoogleFonts.openSans(
-                              color: AppColors.white,
-                              textStyle: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               Expanded(
                 child: PageView(
+                  scrollDirection: Axis.horizontal,
                   controller: _controller,
+                  physics: const NeverScrollableScrollPhysics(),
                   onPageChanged: (a) {
-                    _currentPage = a;
-                    setState(() {});
+                    setState(() {
+                      _currentPage = a;
+                    });
                   },
-                  children: const [
-                    FirstPage(),
-                    SecondPage(),
-                    ThirdPage(),
+                  children: [
+                    FirstPage(controller: _controller),
+                    SecondPage(controller: _controller),
+                    ThirdPage(
+                      controller: _controller,
+                    ),
                   ],
                 ),
               ),

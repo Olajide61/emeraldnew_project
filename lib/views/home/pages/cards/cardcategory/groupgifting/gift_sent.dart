@@ -1,4 +1,3 @@
-import 'package:emerald_newproject/views/home/pages/cards.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:flutter/material.dart';
@@ -48,13 +47,10 @@ class _GiftSentViewState extends State<GiftSentView> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 24, top: 76, right: 24),
-                child: CustomisedButton('Go to Dashboard', onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return const CardsPage();
-                    },
-                  ));
-                }, buttonColor: AppColors.orange, textColor: AppColors.white),
+                child: CustomisedButton('Go to Dashboard',
+                    onPressed: () {},
+                    buttonColor: AppColors.orange,
+                    textColor: AppColors.white),
               ),
             ],
           ),

@@ -18,6 +18,22 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: AppColors.white,
+        title: Text(
+          'History',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.openSans(
+            textStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black,
+            ),
+          ),
+        ),
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -29,23 +45,9 @@ class _HistoryPageState extends State<HistoryPage> {
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.only(left: 24, right: 24, top: 12),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: Text(
-                  'History',
-                  style: GoogleFonts.openSans(
-                    textStyle: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.black,
-                    ),
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
               Row(
                 children: [
                   Expanded(

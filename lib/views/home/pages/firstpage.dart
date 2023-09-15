@@ -5,7 +5,8 @@ import '../../widgets/customised_button.dart';
 import '../../widgets/customised_field.dart';
 
 class FirstPage extends StatefulWidget {
-  const FirstPage({super.key});
+  const FirstPage({super.key, required this.controller});
+  final PageController controller;
 
   @override
   State<FirstPage> createState() => _FirstPageState();
@@ -29,12 +30,13 @@ class _FirstPageState extends State<FirstPage> {
               ),
               fit: BoxFit.cover),
         ),
-        child: Column(
+        child: ListView(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 34),
               child: Text(
                 'Stage 1: Select card',
+                textAlign: TextAlign.center,
                 style: GoogleFonts.openSans(
                   color: AppColors.black,
                   textStyle: const TextStyle(
@@ -45,125 +47,257 @@ class _FirstPageState extends State<FirstPage> {
               ),
             ),
             const SizedBox(height: 32),
-            Padding(
-              padding: const EdgeInsets.only(left: 24, right: 24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomisedField(
-                    hintText: 'Select GiftCard Type',
-                    suffixIcon: IconButton(
-                      icon: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Image(
-                          image: AssetImage('assets/images/drop.png'),
-                        ),
-                      ),
-                      onPressed: () {},
-                    ),
-                    textInputType: TextInputType.text,
-                    textInputAction: TextInputAction.next,
-                    controller: emailController,
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  Text(
-                    'Select GiftCard Design',
-                    style: GoogleFonts.openSans(
-                      color: AppColors.darkGrey,
-                      textStyle: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomisedField(
+                  enabled: false,
+                  hintText: 'Select GiftCard Type',
+                  suffixIcon: IconButton(
+                    icon: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Image(
+                        image: AssetImage('assets/images/drop.png'),
                       ),
                     ),
+                    onPressed: () {},
                   ),
-                  const SizedBox(
-                    height: 16,
+                  textInputType: TextInputType.text,
+                  textInputAction: TextInputAction.next,
+                  controller: emailController,
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Text(
+                  'Select GiftCard Design',
+                  style: GoogleFonts.openSans(
+                    color: AppColors.darkGrey,
+                    textStyle: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Image.asset(
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Image.asset(
                         'assets/images/cardatm.png',
                         width: 159,
                         height: 106.86,
                       ),
-                      const SizedBox(
-                        width: 24,
+                    ),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: Image.asset(
+                        'assets/images/backatm.png',
+                        width: 159,
+                        height: 106.86,
                       ),
-                      Expanded(
-                        child: Image.asset(
-                          'assets/images/backatm.png',
-                          width: 159,
-                          height: 106.86,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 24),
-                  Row(
-                    children: [
-                      Image.asset('assets/images/newcard.png',
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Image.asset('assets/images/newcard.png',
                           width: 159, height: 106.86),
-                      const SizedBox(
-                        width: 24,
-                      ),
-                      Expanded(
-                        child: Image.asset('assets/images/card2.png',
-                            width: 159, height: 106.86),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'GiftCard Cost',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.darkGrey,
-                          textStyle: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
+                    ),
+                    const SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: Image.asset('assets/images/card2.png',
+                          width: 159, height: 106.86),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'GiftCard Cost',
+                      style: GoogleFonts.openSans(
+                        color: AppColors.darkGrey,
+                        textStyle: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 24),
-                        child: Text(
-                          '₦‎ 2,000.00',
+                    ),
+                    const Spacer(),
+                    Text(
+                      '₦‎ 2,000.00',
+                      style: GoogleFonts.openSans(
+                        color: AppColors.darkGrey,
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'I don’t have up to ₦‎ 2,000.00 in my account.',
+                          textAlign: TextAlign.center,
                           style: GoogleFonts.openSans(
-                            color: AppColors.darkGrey,
+                            color: AppColors.db,
                             textStyle: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
+                                fontSize: 12, fontWeight: FontWeight.w400),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'I don’t have up to ₦‎ 2,000.00 in my account.',
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.openSans(
-                              color: AppColors.db,
-                              textStyle: const TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w400),
-                            ),
-                          ),
-                          Text(
+                        InkWell(
+                          onTap: () {
+                            showModalBottomSheet(
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(22),
+                                ),
+                              ),
+                              context: context,
+                              builder: (BuildContext builder) {
+                                return Container(
+                                  height: 315,
+                                  width: 389,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(22)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 23, right: 25.5, top: 24),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Add Fund',
+                                              style: GoogleFonts.openSans(
+                                                textStyle: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: AppColors.black,
+                                                ),
+                                              ),
+                                            ),
+                                            const Spacer(),
+                                            InkWell(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/cancel.png',
+                                                height: 12,
+                                                width: 12,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 16,
+                                        ),
+                                        Text(
+                                          'Select a Deposit Method',
+                                          style: GoogleFonts.openSans(
+                                            textStyle: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                              color: AppColors.darkGrey,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 13,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/pay.png',
+                                              height: 36,
+                                              width: 35.996,
+                                            ),
+                                            const SizedBox(
+                                              width: 14,
+                                            ),
+                                            Text(
+                                              'Pay with Card',
+                                              style: GoogleFonts.openSans(
+                                                textStyle: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: AppColors.black,
+                                                ),
+                                              ),
+                                            ),
+                                            const Spacer(),
+                                            Image.asset(
+                                              'assets/images/arrow.png',
+                                              height: 24,
+                                              width: 24,
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 20.5,
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.only(right: 43),
+                                          child: Divider(),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/bank.png',
+                                              height: 36,
+                                              width: 35.996,
+                                            ),
+                                            const SizedBox(
+                                              width: 14,
+                                            ),
+                                            Text(
+                                              'Pay with Transfer',
+                                              style: GoogleFonts.openSans(
+                                                textStyle: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: AppColors.black,
+                                                ),
+                                              ),
+                                            ),
+                                            const Spacer(),
+                                            Image.asset(
+                                              'assets/images/arrow.png',
+                                              height: 24,
+                                              width: 24,
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: Text(
                             'Add fund',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.openSans(
@@ -172,19 +306,19 @@ class _FirstPageState extends State<FirstPage> {
                                   fontSize: 12, fontWeight: FontWeight.w700),
                             ),
                           ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      CustomisedButton('Next',
-                          onPressed: () {},
-                          buttonColor: AppColors.orange,
-                          textColor: AppColors.white),
-                    ],
-                  ),
-                ],
-              ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    CustomisedButton('Next',
+                        onPressed: () {},
+                        buttonColor: AppColors.orange,
+                        textColor: AppColors.white),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

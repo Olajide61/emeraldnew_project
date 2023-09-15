@@ -22,7 +22,7 @@ class _KycViewState extends State<KycView> {
           onPressed: Navigator.of(context).pop,
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: AppColors.darkorange,
+            color: AppColors.orange,
           ),
         ),
         iconTheme: const IconThemeData(color: Colors.black),

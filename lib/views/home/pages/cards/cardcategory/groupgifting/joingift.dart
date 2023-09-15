@@ -17,6 +17,29 @@ class _JoinGiftViewState extends State<JoinGiftView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: AppColors.orange,
+          ),
+        ),
+        title: Text(
+          'Group Gifting',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.openSans(
+            textStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black,
+            ),
+          ),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -27,47 +50,18 @@ class _JoinGiftViewState extends State<JoinGiftView> {
               ),
               fit: BoxFit.cover),
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 24, top: 49),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: AppColors.darkorange,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const SizedBox(
-                    width: 85,
-                  ),
-                  Text(
-                    'Group Gifting',
-                    style: GoogleFonts.openSans(
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 357),
-              Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: CustomisedButton('Join', onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const GroupDetailsView();
-                  }));
-                }, buttonColor: AppColors.orange, textColor: AppColors.white),
-              ),
-            ],
-          ),
+        child: Column(
+          children: [
+            const SizedBox(height: 357),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: CustomisedButton('Join', onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const GroupDetailsView();
+                }));
+              }, buttonColor: AppColors.orange, textColor: AppColors.white),
+            ),
+          ],
         ),
       ),
     );

@@ -626,15 +626,16 @@ class _DashboardPageState extends State<DashboardPage> {
             padding: const EdgeInsets.symmetric(vertical: 16),
             margin: const EdgeInsets.symmetric(horizontal: 24),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: AppColors.white,
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 10,
-                    spreadRadius: 3,
-                  )
-                ]),
+              borderRadius: BorderRadius.circular(8),
+              color: AppColors.white,
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 10,
+                  spreadRadius: 3,
+                )
+              ],
+            ),
             child: InkWell(
               onTap: () {
                 Navigator.push(
@@ -672,38 +673,289 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 24, right: 24, top: 16.47),
-            child: Row(
+            child: Column(
               children: [
-                Text(
-                  'Recent transactions',
-                  style: GoogleFonts.openSans(
-                    textStyle: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.black,
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.pinky,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  height: 24,
-                  width: 67,
-                  child: Center(
-                    child: Text(
-                      'See all',
+                Row(
+                  children: [
+                    Text(
+                      'Recent transactions',
                       style: GoogleFonts.openSans(
                         textStyle: TextStyle(
-                          fontSize: 12,
+                          fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.darkorange,
+                          color: AppColors.black,
                         ),
                       ),
                     ),
-                  ),
+                    const Spacer(),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.pinky,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      height: 24,
+                      width: 67,
+                      child: Center(
+                        child: Text(
+                          'See all',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.darkorange,
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: AppColors.lightblue,
+                          ),
+                          height: 44.774,
+                          width: 44.774,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Image.asset(
+                              'assets/images/gift.png',
+                              height: 24,
+                              width: 24,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Top-up',
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.black,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'March 2 | 3:00pm',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.darkGrey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        Text(
+                          '+₦‎234.44',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: AppColors.lightblue,
+                          ),
+                          height: 44.774,
+                          width: 44.774,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Image.asset(
+                              'assets/images/gift.png',
+                              height: 24,
+                              width: 24,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Top-up',
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.black,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'March 2 | 3:00pm',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.darkGrey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        Text(
+                          '+₦‎234.44',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: AppColors.lightblue,
+                          ),
+                          height: 44.774,
+                          width: 44.774,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Image.asset(
+                              'assets/images/gift.png',
+                              height: 24,
+                              width: 24,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Top-up',
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.black,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'March 2 | 3:00pm',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.darkGrey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        Text(
+                          '+₦‎234.44',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: AppColors.lightblue,
+                          ),
+                          height: 44.774,
+                          width: 44.774,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Image.asset(
+                              'assets/images/gift.png',
+                              height: 24,
+                              width: 24,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Top-up',
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.black,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'March 2 | 3:00pm',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.darkGrey,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        Text(
+                          '+₦‎234.44',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 )
               ],
             ),

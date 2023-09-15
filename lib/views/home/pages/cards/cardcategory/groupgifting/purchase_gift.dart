@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/gift_sent.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/gifting_created.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:emerald_newproject/views/widgets/customised_field.dart';
@@ -17,6 +17,29 @@ class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: AppColors.orange,
+          ),
+        ),
+        title: Text(
+          'Group Gifting',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.openSans(
+            textStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black,
+            ),
+          ),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
       resizeToAvoidBottomInset: false,
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -28,124 +51,97 @@ class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
               ),
               fit: BoxFit.cover),
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 24, top: 49),
-          child: Column(
-            children: [
-              Row(
+        child: ListView(
+          children: [
+            const SizedBox(height: 68),
+            Image.asset(
+              'assets/images/cardatm.png',
+              height: 101.673,
+              width: 159,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Text(
+              'Wedding Anniversary Card',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.openSans(
+                textStyle: TextStyle(
+                  fontSize: 20.811,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.db,
+                ),
+              ),
+            ),
+            Text(
+              'Created by: You',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.openSans(
+                textStyle: TextStyle(
+                  fontSize: 19.027,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.db,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 28,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 24, right: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: AppColors.darkorange,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                  const CustomisedField(
+                    hintText: 'Target Amount',
+                    textInputType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
                   ),
-                  const SizedBox(width: 85),
+                  const SizedBox(height: 28),
                   Text(
-                    'Group Gifting',
+                    'Available Amount',
                     style: GoogleFonts.openSans(
                       textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.db,
                       ),
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  Slider(
+                      value: height.toDouble(),
+                      max: 200000,
+                      activeColor: AppColors.green,
+                      inactiveColor: AppColors.w,
+                      onChanged: (double newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      }),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(height.toString()),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 256.42,
+                  ),
+                  CustomisedButton('Purchase', onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const GiftingCreatedView();
+                        },
+                      ),
+                    );
+                  }, buttonColor: AppColors.orange, textColor: AppColors.white),
                 ],
               ),
-              const SizedBox(height: 68),
-              Image.asset(
-                'assets/images/cardatm.png',
-                height: 101.673,
-                width: 159,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Text(
-                'Wedding Anniversary Card',
-                style: GoogleFonts.openSans(
-                  textStyle: TextStyle(
-                    fontSize: 20.811,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.db,
-                  ),
-                ),
-              ),
-              Text(
-                'Created by: You',
-                style: GoogleFonts.openSans(
-                  textStyle: TextStyle(
-                    fontSize: 19.027,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.db,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 28,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 24, right: 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const CustomisedField(
-                      hintText: 'Target Amount',
-                      textInputType: TextInputType.text,
-                      textInputAction: TextInputAction.next,
-                    ),
-                    const SizedBox(height: 28),
-                    Text(
-                      'Available Amount',
-                      style: GoogleFonts.openSans(
-                        textStyle: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.db,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Slider(
-                        value: height.toDouble(),
-                        max: 200000,
-                        activeColor: AppColors.green,
-                        inactiveColor: AppColors.w,
-                        onChanged: (double newValue) {
-                          setState(() {
-                            height = newValue.round();
-                          });
-                        }),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(height.toString()),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 256.42,
-                    ),
-                    CustomisedButton('Purchase', onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const GiftSentView();
-                          },
-                        ),
-                      );
-                    },
-                        buttonColor: AppColors.orange,
-                        textColor: AppColors.white),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -10,12 +10,14 @@ import '../../../widgets/customised_button.dart';
 class FirstStage extends StatefulWidget {
   const FirstStage({super.key, required this.controller});
   final PageController controller;
+  
 
   @override
   State<FirstStage> createState() => _FirstStageState();
 }
 
 class _FirstStageState extends State<FirstStage> {
+  
   int _currentPage = 0;
   bool isButtonActive = false;
   File? image;

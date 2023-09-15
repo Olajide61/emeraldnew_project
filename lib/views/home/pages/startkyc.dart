@@ -21,7 +21,13 @@ class _KycStartViewState extends State<KycStartView> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.black),
+        leading: IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: AppColors.orange,
+          ),
+        ),
         title: Text(
           'KYC',
           textAlign: TextAlign.center,

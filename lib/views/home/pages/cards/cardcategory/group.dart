@@ -21,6 +21,29 @@ class _GroupCardViewState extends State<GroupCardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: AppColors.orange,
+          ),
+        ),
+        title: Text(
+          'Group Gifting',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.openSans(
+            textStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: AppColors.black,
+            ),
+          ),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -32,35 +55,10 @@ class _GroupCardViewState extends State<GroupCardView> {
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 32, left: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios_new_outlined,
-                      color: AppColors.darkorange,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  const SizedBox(
-                    width: 82,
-                  ),
-                  Text(
-                    'Group Gifting',
-                    style: GoogleFonts.openSans(
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
               Padding(
                 padding: const EdgeInsets.only(top: 46),
                 child: Row(
@@ -85,8 +83,7 @@ class _GroupCardViewState extends State<GroupCardView> {
                         height: 46,
                         width: 159,
                         child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 30.5, top: 13.5, right: 30.5),
+                          padding: const EdgeInsets.all(13.5),
                           child: Text(
                             'Create Gifting',
                             textAlign: TextAlign.center,
@@ -123,8 +120,7 @@ class _GroupCardViewState extends State<GroupCardView> {
                         height: 46,
                         width: 159,
                         child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 30.5, top: 13.5, right: 30.5),
+                          padding: const EdgeInsets.all(13.5),
                           child: Text(
                             'Join Gifting',
                             textAlign: TextAlign.center,
@@ -142,21 +138,17 @@ class _GroupCardViewState extends State<GroupCardView> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 25, top: 24),
-                child: Row(
-                  children: [
-                    Text(
-                      'Invitations',
-                      style: GoogleFonts.openSans(
-                        textStyle: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.darkGrey,
-                        ),
-                      ),
-                    ),
-                  ],
+              const SizedBox(
+                height: 24,
+              ),
+              Text(
+                'Invitations',
+                style: GoogleFonts.openSans(
+                  textStyle: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.darkGrey,
+                  ),
                 ),
               ),
             ],

@@ -26,7 +26,7 @@ class _GroupGiftTwoViewState extends State<GroupGiftTwoView> {
                 fit: BoxFit.cover),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24),
+            padding: const EdgeInsets.only(top: 34),
             child: ListView(
               children: [
                 Padding(
@@ -77,6 +77,7 @@ class _GroupGiftTwoViewState extends State<GroupGiftTwoView> {
                   height: 16,
                 ),
                 CustomisedField(
+                  enabled: false,
                   suffixIcon: Padding(
                     padding: const EdgeInsets.all(15),
                     child: ImageIcon(
