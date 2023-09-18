@@ -10,17 +10,16 @@ import '../../../widgets/customised_button.dart';
 class FirstStage extends StatefulWidget {
   const FirstStage({super.key, required this.controller});
   final PageController controller;
-  
 
   @override
   State<FirstStage> createState() => _FirstStageState();
 }
 
 class _FirstStageState extends State<FirstStage> {
-  
   int _currentPage = 0;
   bool isButtonActive = false;
   File? image;
+  String? dropdownvalue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,18 +119,20 @@ class _FirstStageState extends State<FirstStage> {
               ),
               CustomisedButton(
                 'Next',
-                onPressed: () {
-                  if (_currentPage < 2) {
-                    widget.controller.nextPage(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.linear,
-                    );
-                    setState(() {
-                      _currentPage++;
-                    });
-                  } else {}
-                },
-                buttonColor: isButtonActive ? AppColors.orange : AppColors.pink,
+                onPressed: !isButtonActive
+                    ? null
+                    : () {
+                        if (_currentPage < 2) {
+                          widget.controller.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.linear,
+                          );
+                          setState(() {
+                            _currentPage++;
+                          });
+                        } else {}
+                      },
+                buttonColor: AppColors.orange,
                 textColor: AppColors.white,
               ),
             ],

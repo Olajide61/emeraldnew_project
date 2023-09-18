@@ -22,7 +22,14 @@ class _KycStartViewState extends State<KycStartView> {
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-          onPressed: Navigator.of(context).pop,
+          onPressed: () {
+            if (_currentPage == 0) {
+              Navigator.of(context).pop();
+            } else {
+              _controller.previousPage(
+                  duration: const Duration(seconds: 1), curve: Curves.linear);
+            }
+          },
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
             color: AppColors.orange,
@@ -61,21 +68,60 @@ class _KycStartViewState extends State<KycStartView> {
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: _currentPage == 0 ? AppColors.green : AppColors.w,
+                      color: _currentPage >= 0 ? AppColors.green : AppColors.w,
                     ),
                     height: 30,
                     width: 30,
-                    child: Center(
-                      child: Text(
-                        '1',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
+                    alignment: Alignment.center,
+                    child: _currentPage > 0
+                        ? const Icon(
+                            Icons.check_rounded,
+                            color: Colors.white,
+                            size: 20,
+                          )
+                        : Text(
+                            '1',
+                            style: GoogleFonts.openSans(
+                              color: AppColors.white,
+                              textStyle: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(color: AppColors.blackb),
+                      height: 1,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color:
+                            _currentPage >= 1 ? AppColors.green : AppColors.w),
+                    height: 30,
+                    width: 30,
+                    child: Center(
+                      child: _currentPage > 1
+                          ? const Icon(
+                              Icons.check_rounded,
+                              color: Colors.white,
+                              size: 20,
+                            )
+                          : Text(
+                              '2',
+                              style: GoogleFonts.openSans(
+                                color: AppColors.white,
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -90,48 +136,26 @@ class _KycStartViewState extends State<KycStartView> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color:
-                            _currentPage == 1 ? AppColors.green : AppColors.w),
+                            _currentPage >= 2 ? AppColors.green : AppColors.w),
                     height: 30,
                     width: 30,
                     child: Center(
-                      child: Text(
-                        '2',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(color: AppColors.blackb),
-                      height: 1,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color:
-                            _currentPage == 2 ? AppColors.green : AppColors.w),
-                    height: 30,
-                    width: 30,
-                    child: Center(
-                      child: Text(
-                        '3',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
+                      child: _currentPage > 2
+                          ? const Icon(
+                              Icons.check_rounded,
+                              color: Colors.white,
+                              size: 20,
+                            )
+                          : Text(
+                              '3',
+                              style: GoogleFonts.openSans(
+                                color: AppColors.white,
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                 ],

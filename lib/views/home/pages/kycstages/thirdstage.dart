@@ -1,13 +1,13 @@
 import 'dart:io';
 
+import 'package:dotted_border/dotted_border.dart';
 import 'package:emerald_newproject/views/home/pages/kycstages/kycsuccessful.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:dotted_border/dotted_border.dart';
+
 import '../../../widgets/color.dart';
 import '../../../widgets/customised_button.dart';
-import '../../../widgets/customised_field.dart';
 
 class ThirdStage extends StatefulWidget {
   const ThirdStage({super.key, required this.controller});
@@ -20,7 +20,8 @@ class _ThirdStageState extends State<ThirdStage> {
   File? image1;
   File? image2;
   String? imageUrl;
-  String selectedValue = 'Voter\'s Identity Card';
+  String? selectedValue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,19 +52,42 @@ class _ThirdStageState extends State<ThirdStage> {
               ),
             ),
             const SizedBox(height: 32),
-            CustomisedField(
-              suffixIcon: Padding(
-                padding: const EdgeInsets.all(11),
-                child: ImageIcon(
-                  const AssetImage('assets/images/drop.png'),
-                  color: AppColors.black,
-                  size: 24,
+            Container(
+              color: AppColors.lightgrey,
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: DropdownButton<String>(
+                value: selectedValue,
+                isExpanded: true,
+                hint: Text('Document Type'),
+                underline: const SizedBox(),
+
+                icon: Padding(
+                  padding: const EdgeInsets.all(11),
+                  child: ImageIcon(
+                    const AssetImage('assets/images/drop.png'),
+                    color: AppColors.black,
+                    size: 24,
+                  ),
                 ),
+
+                items: [
+                  'NIN',
+                  'International Passport',
+                  'Voters card',
+                ].map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                // After selecting the desired option,it will
+                // change button value to selected value
+                onChanged: (newValue) {
+                  setState(() {
+                    selectedValue = newValue!;
+                  });
+                },
               ),
-              enabled: false,
-              hintText: 'Document Type',
-              textInputType: TextInputType.text,
-              textInputAction: TextInputAction.next,
             ),
             const SizedBox(height: 32),
             Padding(
@@ -310,14 +334,16 @@ class _ThirdStageState extends State<ThirdStage> {
             const SizedBox(height: 48),
             CustomisedButton(
               'Save',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return const KycSuccessfulView();
-                  }),
-                );
-              },
+              onPressed: selectedValue == null
+                  ? null
+                  : () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return const KycSuccessfulView();
+                        }),
+                      );
+                    },
               buttonColor: AppColors.orange,
               textColor: AppColors.white,
             ),
