@@ -78,14 +78,16 @@ class _GroupGiftTwoViewState extends State<GroupGiftTwoView> {
                 ),
                 CustomisedField(
                   enabled: false,
-                  suffixIcon: Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: ImageIcon(
-                      const AssetImage('assets/images/drop.png'),
-                      color: AppColors.black,
-                    ),
-                  ),
                   hintText: 'Location',
+                  suffixIcon: IconButton(
+                    icon: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Image(
+                        image: AssetImage('assets/images/drop.png'),
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
                   textInputType: TextInputType.text,
                   textInputAction: TextInputAction.next,
                 ),

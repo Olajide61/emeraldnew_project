@@ -13,6 +13,12 @@ class PurchaseGiftsView extends StatefulWidget {
 }
 
 class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
+  final List<String> images = [
+    'assets/images/head.png',
+    'assets/images/head.png',
+    'assets/images/head.png',
+    'assets/images/head.png',
+  ];
   int height = 200000;
   @override
   Widget build(BuildContext context) {
@@ -125,8 +131,60 @@ class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
                       Text(height.toString()),
                     ],
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Participant',
+                        style: GoogleFonts.openSans(
+                          textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.db),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      for (int i = 0; i < images.length; i++)
+                        Align(
+                          widthFactor: 0.5,
+                          child: CircleAvatar(
+                            radius: 24,
+                            backgroundImage: AssetImage(images[i]),
+                          ),
+                        ),
+                      const Spacer(),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: AppColors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: AppColors.green)),
+                          height: 27,
+                          width: 67,
+                          child: Padding(
+                            padding: const EdgeInsets.all(4),
+                            child: Text(
+                              'See all',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.openSans(
+                                textStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.green,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(
-                    height: 256.42,
+                    height: 62,
                   ),
                   CustomisedButton('Purchase', onPressed: () {
                     Navigator.push(

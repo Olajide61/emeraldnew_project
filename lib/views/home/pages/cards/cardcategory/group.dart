@@ -12,10 +12,11 @@ class GroupCardView extends StatefulWidget {
 }
 
 class _GroupCardViewState extends State<GroupCardView> {
-  final List<String> image = [
-    'assets/images/white0.png'
-        'assets/images/white0.png'
-        'assets/images/white0.png'
+  final List<String> images = [
+    'assets/images/head.png',
+    'assets/images/head.png',
+    'assets/images/head.png',
+    'assets/images/head.png',
   ];
 
   @override
@@ -55,7 +56,7 @@ class _GroupCardViewState extends State<GroupCardView> {
               fit: BoxFit.cover),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.only(left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -148,6 +149,127 @@ class _GroupCardViewState extends State<GroupCardView> {
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: AppColors.darkGrey,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 26),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  for (int i = 0; i < images.length; i++)
+                    Align(
+                      widthFactor: 0.5,
+                      child: CircleAvatar(
+                        radius: 24,
+                        backgroundImage: AssetImage(images[i]),
+                      ),
+                    ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: AppColors.green)),
+                      height: 27,
+                      width: 67,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: Text(
+                          'View',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.green,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Happy Birthday Card',
+                style: GoogleFonts.openSans(
+                  textStyle: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.db,
+                  ),
+                ),
+              ),
+              Text(
+                'Created by: Drey Gare',
+                style: GoogleFonts.openSans(
+                  textStyle: TextStyle(
+                    fontSize: 12.8,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.db,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 39),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  for (int i = 0; i < images.length; i++)
+                    Align(
+                      widthFactor: 0.5,
+                      child: CircleAvatar(
+                        radius: 24,
+                        backgroundImage: AssetImage(images[i]),
+                      ),
+                    ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: AppColors.green,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: AppColors.green)),
+                      height: 27,
+                      width: 67,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: Text(
+                          'Join',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Wedding Anniversary Card',
+                style: GoogleFonts.openSans(
+                  textStyle: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.db,
+                  ),
+                ),
+              ),
+              Text(
+                'Created by: Drey Gare',
+                style: GoogleFonts.openSans(
+                  textStyle: TextStyle(
+                    fontSize: 12.8,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.db,
                   ),
                 ),
               ),
