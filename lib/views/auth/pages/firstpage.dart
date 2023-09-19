@@ -2,7 +2,7 @@ import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/customised_button.dart';
-import '../../widgets/customised_field.dart';
+
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key, required this.controller});
@@ -16,6 +16,10 @@ class _FirstPageState extends State<FirstPage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
+  bool isButtonActive = false;
+  int _currentPage = 0;
+  String? selectedValue;
+  String? dropdownvalue;
 
   @override
   Widget build(BuildContext context) {
@@ -50,21 +54,48 @@ class _FirstPageState extends State<FirstPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomisedField(
-                  enabled: false,
-                  hintText: 'Select GiftCard Type',
-                  suffixIcon: IconButton(
-                    icon: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/drop.png'),
+                Container(
+                  color: AppColors.lightgrey,
+                  child: DropdownButton<String>(
+                    value: selectedValue,
+                    isExpanded: true,
+                    hint: Padding(
+                      padding: const EdgeInsets.only(left: 24),
+                      child: Text(
+                        'Select GiftCard Type',
+                        style: GoogleFonts.openSans(
+                          textStyle: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff9C9C9C)),
+                        ),
                       ),
                     ),
-                    onPressed: () {},
+                    underline: const SizedBox(),
+                    icon: Padding(
+                      padding: const EdgeInsets.all(11),
+                      child: ImageIcon(
+                        const AssetImage('assets/images/drop.png'),
+                        color: AppColors.black,
+                        size: 24,
+                      ),
+                    ),
+                    items: [
+                      'Happy Birthday Card',
+                      'Standard Card',
+                      'Travel Card',
+                    ].map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (newValue) {
+                      setState(() {
+                        selectedValue = newValue!;
+                      });
+                    },
                   ),
-                  textInputType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
-                  controller: emailController,
                 ),
                 const SizedBox(
                   height: 24,
@@ -313,7 +344,19 @@ class _FirstPageState extends State<FirstPage> {
                       height: 8,
                     ),
                     CustomisedButton('Next',
-                        onPressed: () {},
+                        onPressed: selectedValue == null
+                            ? null
+                            : () {
+                                if (_currentPage < 2) {
+                                  widget.controller.nextPage(
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.linear,
+                                  );
+                                  setState(() {
+                                    _currentPage++;
+                                  });
+                                } else {}
+                              },
                         buttonColor: AppColors.orange,
                         textColor: AppColors.white),
                   ],

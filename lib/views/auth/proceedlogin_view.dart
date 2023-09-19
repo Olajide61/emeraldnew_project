@@ -1,3 +1,4 @@
+import 'package:emerald_newproject/views/auth/login_view.dart';
 import 'package:emerald_newproject/views/home/home.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,7 @@ class _ProceedLoginViewState extends State<ProceedLoginView> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return const HomeScreen();
+                        return const LoginView();
                       }),
                     );
                   }, buttonColor: AppColors.orange, textColor: AppColors.white),

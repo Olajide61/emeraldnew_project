@@ -32,6 +32,7 @@ class CustomisedField extends StatelessWidget {
   final TextAlign? textAlign;
   final List<TextInputFormatter>? inputFormatters;
   final Widget? suffixIcon;
+  final String? suffixText;
 
   const CustomisedField({
     super.key,
@@ -62,6 +63,7 @@ class CustomisedField extends StatelessWidget {
     this.color,
     this.textColor,
     this.borderColor,
+    this.suffixText,
   });
 
   @override
@@ -114,6 +116,7 @@ class CustomisedField extends StatelessWidget {
                 EdgeInsets.symmetric(vertical: maxLines != null ? 10 : 0),
             suffix: suffix,
             suffixIcon: suffixIcon,
+            suffixText: suffixText,
             hintText: hintText,
             hintStyle: TextStyle(
               fontFamily: 'Open Sans',

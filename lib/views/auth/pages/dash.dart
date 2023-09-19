@@ -1,13 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:emerald_newproject/views/home/notification.dart';
-import 'package:emerald_newproject/views/home/pages/cards/cardcategory/group.dart';
-import 'package:emerald_newproject/views/home/pages/cards/cardcategory/individual.dart';
+import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/group.dart';
+import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/individual.dart';
 import 'package:emerald_newproject/views/profile/accountdetails_view.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../kyc_view.dart';
+import '../../home/kyc_view.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});

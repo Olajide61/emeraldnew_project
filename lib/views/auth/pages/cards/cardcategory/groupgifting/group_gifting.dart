@@ -14,14 +14,21 @@ class GroupGiftView extends StatefulWidget {
 
 class _GroupGiftViewState extends State<GroupGiftView> {
   int _currentPage = 0;
-  final PageController _controller = PageController();
+  final PageController _controller = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-          onPressed: Navigator.of(context).pop,
+          onPressed: () {
+            if (_currentPage == 0) {
+              Navigator.of(context).pop();
+            } else {
+              _controller.previousPage(
+                  duration: const Duration(seconds: 1), curve: Curves.linear);
+            }
+          },
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
             color: AppColors.orange,
@@ -60,21 +67,27 @@ class _GroupGiftViewState extends State<GroupGiftView> {
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: _currentPage == 0 ? AppColors.green : AppColors.w,
+                      color: _currentPage >= 0 ? AppColors.green : AppColors.w,
                     ),
                     height: 30,
                     width: 30,
                     child: Center(
-                      child: Text(
-                        '1',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
+                      child: _currentPage > 0
+                          ? const Icon(
+                              Icons.check_rounded,
+                              color: Colors.white,
+                              size: 20,
+                            )
+                          : Text(
+                              '1',
+                              style: GoogleFonts.openSans(
+                                color: AppColors.white,
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -89,20 +102,26 @@ class _GroupGiftViewState extends State<GroupGiftView> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color:
-                            _currentPage == 1 ? AppColors.green : AppColors.w),
+                            _currentPage >= 1 ? AppColors.green : AppColors.w),
                     height: 30,
                     width: 30,
                     child: Center(
-                      child: Text(
-                        '2',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
+                      child: _currentPage > 1
+                          ? const Icon(
+                              Icons.check_rounded,
+                              color: Colors.white,
+                              size: 20,
+                            )
+                          : Text(
+                              '2',
+                              style: GoogleFonts.openSans(
+                                color: AppColors.white,
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -117,20 +136,26 @@ class _GroupGiftViewState extends State<GroupGiftView> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color:
-                            _currentPage == 2 ? AppColors.green : AppColors.w),
+                            _currentPage >= 2 ? AppColors.green : AppColors.w),
                     height: 30,
                     width: 30,
                     child: Center(
-                      child: Text(
-                        '3',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
+                      child: _currentPage > 2
+                          ? const Icon(
+                              Icons.check_rounded,
+                              color: Colors.white,
+                              size: 20,
+                            )
+                          : Text(
+                              '3',
+                              style: GoogleFonts.openSans(
+                                color: AppColors.white,
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                 ],
@@ -138,16 +163,17 @@ class _GroupGiftViewState extends State<GroupGiftView> {
               Expanded(
                 child: PageView(
                   scrollDirection: Axis.horizontal,
+                  physics: const NeverScrollableScrollPhysics(),
                   controller: _controller,
                   onPageChanged: (a) {
                     setState(() {
                       _currentPage = a;
                     });
                   },
-                  children: const [
-                    GroupGiftOneView(),
-                    GroupGiftTwoView(),
-                    GroupGiftThreeView(),
+                  children: [
+                    GroupGiftOneView(controller: _controller),
+                    GroupGiftTwoView(controller: _controller),
+                    GroupGiftThreeView(controller: _controller),
                   ],
                 ),
               ),

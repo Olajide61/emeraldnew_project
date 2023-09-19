@@ -13,6 +13,8 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  String? selectedValue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,19 +75,48 @@ class _SecondPageState extends State<SecondPage> {
             const SizedBox(
               height: 16,
             ),
-            CustomisedField(
-              enabled: false,
-              suffixIcon: Padding(
-                padding: const EdgeInsets.all(15),
-                child: ImageIcon(
-                  const AssetImage('assets/images/drop.png'),
-                  color: AppColors.black,
-                  size: 24,
+            Container(
+              color: AppColors.lightgrey,
+              child: DropdownButton<String>(
+                value: selectedValue,
+                isExpanded: true,
+                hint: Padding(
+                  padding: const EdgeInsets.only(left: 24),
+                  child: Text(
+                    'Location',
+                    style: GoogleFonts.openSans(
+                      textStyle: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xff9C9C9C)),
+                    ),
+                  ),
                 ),
+                underline: const SizedBox(),
+                icon: Padding(
+                  padding: const EdgeInsets.all(11),
+                  child: ImageIcon(
+                    const AssetImage('assets/images/drop.png'),
+                    color: AppColors.black,
+                    size: 24,
+                  ),
+                ),
+                items: [
+                  'Lagos',
+                  'Abuja',
+                  'Ibadan',
+                ].map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                onChanged: (newValue) {
+                  setState(() {
+                    selectedValue = newValue!;
+                  });
+                },
               ),
-              hintText: 'Location',
-              textInputType: TextInputType.text,
-              textInputAction: TextInputAction.next,
             ),
             const SizedBox(
               height: 36,
@@ -250,7 +281,14 @@ class _SecondPageState extends State<SecondPage> {
               height: 8,
             ),
             CustomisedButton('Next',
-                onPressed: () {},
+                onPressed: selectedValue == null
+                    ? null
+                    : () {
+                        widget.controller.nextPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.linear,
+                        );
+                      },
                 buttonColor: AppColors.orange,
                 textColor: AppColors.white),
           ],

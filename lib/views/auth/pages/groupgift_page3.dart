@@ -1,14 +1,13 @@
-import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/purchase_gift.dart';
+import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/groupgifting/purchase_gift.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/color.dart';
 import '../../widgets/customised_button.dart';
 import '../../widgets/customised_field.dart';
- 
 
 class GroupGiftThreeView extends StatefulWidget {
-  const GroupGiftThreeView({super.key});
-
+  const GroupGiftThreeView({super.key, required this.controller});
+  final PageController controller;
   @override
   State<GroupGiftThreeView> createState() => _GroupGiftThreeViewState();
 }
@@ -30,19 +29,19 @@ class _GroupGiftThreeViewState extends State<GroupGiftThreeView> {
         child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.only(
-                left: 46,
-              ),
+              padding: const EdgeInsets.only(top: 32),
               child: Row(
                 children: [
-                  Text(
-                    'Stage 3: Enter Amount',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.openSans(
-                      color: AppColors.black,
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                  Expanded(
+                    child: Text(
+                      'Stage 3: Enter Amount',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.openSans(
+                        color: AppColors.black,
+                        textStyle: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   )
@@ -53,6 +52,7 @@ class _GroupGiftThreeViewState extends State<GroupGiftThreeView> {
               height: 32,
             ),
             const CustomisedField(
+              suffixText: 'jjjjjj',
               hintText: 'Targeted Amount',
               textInputType: TextInputType.text,
               textInputAction: TextInputAction.next,

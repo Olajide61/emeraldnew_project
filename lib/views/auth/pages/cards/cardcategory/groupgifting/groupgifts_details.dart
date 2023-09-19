@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/gift_sent.dart';
+import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/groupgifting/gift_sent.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:emerald_newproject/views/widgets/customised_field.dart';

@@ -5,13 +5,15 @@ import '../../widgets/customised_button.dart';
 import '../../widgets/customised_field.dart';
 
 class GroupGiftTwoView extends StatefulWidget {
-  const GroupGiftTwoView({super.key});
-
+  const GroupGiftTwoView({super.key, required this.controller});
+  final PageController controller;
   @override
   State<GroupGiftTwoView> createState() => _GroupGiftTwoViewState();
 }
 
 class _GroupGiftTwoViewState extends State<GroupGiftTwoView> {
+  String? selectedValue;
+  String? dropdownvalue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,26 +78,61 @@ class _GroupGiftTwoViewState extends State<GroupGiftTwoView> {
                 const SizedBox(
                   height: 16,
                 ),
-                CustomisedField(
-                  enabled: false,
-                  hintText: 'Location',
-                  suffixIcon: IconButton(
-                    icon: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/drop.png'),
+                Container(
+                  color: AppColors.lightgrey,
+                  child: DropdownButton<String>(
+                    value: selectedValue,
+                    isExpanded: true,
+                    hint: Padding(
+                      padding: const EdgeInsets.only(left: 24),
+                      child: Text(
+                        'Location',
+                        style: GoogleFonts.openSans(
+                          textStyle: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff9C9C9C)),
+                        ),
                       ),
                     ),
-                    onPressed: () {},
+                    underline: const SizedBox(),
+                    icon: Padding(
+                      padding: const EdgeInsets.all(11),
+                      child: ImageIcon(
+                        const AssetImage('assets/images/drop.png'),
+                        color: AppColors.black,
+                        size: 24,
+                      ),
+                    ),
+                    items: [
+                      'Lagos',
+                      'Abuja',
+                      'Kano',
+                    ].map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (newValue) {
+                      setState(() {
+                        selectedValue = newValue!;
+                      });
+                    },
                   ),
-                  textInputType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
                 ),
                 const SizedBox(
                   height: 28,
                 ),
                 CustomisedButton('Next',
-                    onPressed: () {},
+                    onPressed: selectedValue == null
+                        ? null
+                        : () {
+                            widget.controller.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.linear,
+                            );
+                          },
                     buttonColor: AppColors.orange,
                     textColor: AppColors.white),
               ],

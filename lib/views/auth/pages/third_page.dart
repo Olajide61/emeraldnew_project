@@ -4,7 +4,7 @@ import '../../widgets/color.dart';
 import '../../widgets/customised_button.dart';
 
 class ThirdPage extends StatefulWidget {
-  const ThirdPage({super.key,required this.controller});
+  const ThirdPage({super.key, required this.controller});
   final PageController controller;
 
   @override
@@ -485,91 +485,99 @@ class _ThirdPageState extends State<ThirdPage> {
                               padding: EdgeInsets.only(right: 43),
                               child: Divider(),
                             ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Image.asset(
-                                    'assets/images/pay.png',
-                                    height: 36,
-                                    width: 35.996,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 14,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Pay with Card',
-                                      style: GoogleFonts.openSans(
-                                        textStyle: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                          color: AppColors.black,
-                                        ),
-                                      ),
+                            InkWell(
+                              onTap: () {},
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Image.asset(
+                                      'assets/images/pay.png',
+                                      height: 36,
+                                      width: 35.996,
                                     ),
-                                    Text(
-                                      'Make a donation towards an event',
-                                      style: GoogleFonts.openSans(
-                                        textStyle: TextStyle(
-                                          fontSize: 11.5,
-                                          fontWeight: FontWeight.w400,
-                                          color: AppColors.blackbb,
+                                  ),
+                                  const SizedBox(
+                                    width: 14,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Pay with Card',
+                                        style: GoogleFonts.openSans(
+                                          textStyle: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: AppColors.black,
+                                          ),
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
-                                const Spacer(),
-                                Image.asset(
-                                  'assets/images/arrow.png',
-                                  height: 24,
-                                  width: 24,
-                                ),
-                              ],
+                                      Text(
+                                        'Make a donation towards an event',
+                                        style: GoogleFonts.openSans(
+                                          textStyle: TextStyle(
+                                            fontSize: 11.5,
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.blackbb,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  Image.asset(
+                                    'assets/images/arrow.png',
+                                    height: 24,
+                                    width: 24,
+                                  ),
+                                ],
+                              ),
                             ),
                             const Padding(
                               padding: EdgeInsets.only(right: 43),
                               child: Divider(),
                             ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Image.asset(
-                                    'assets/images/bank.png',
-                                    height: 36,
-                                    width: 36,
+                            InkWell(
+                              onTap: () {},
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Image.asset(
+                                      'assets/images/bank.png',
+                                      height: 36,
+                                      width: 36,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  width: 14,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Pay with Transfer',
-                                      style: GoogleFonts.openSans(
-                                        textStyle: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                          color: AppColors.black,
+                                  const SizedBox(
+                                    width: 14,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Pay with Transfer',
+                                        style: GoogleFonts.openSans(
+                                          textStyle: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: AppColors.black,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                const Spacer(),
-                                Image.asset(
-                                  'assets/images/arrow.png',
-                                  height: 24,
-                                  width: 24,
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  Image.asset(
+                                    'assets/images/arrow.png',
+                                    height: 24,
+                                    width: 24,
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),

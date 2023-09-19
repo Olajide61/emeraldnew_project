@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
-import 'package:emerald_newproject/views/home/pages/kycstages/kycsuccessful.dart';
+import 'package:emerald_newproject/views/auth/pages/kycstages/kycsuccessful.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,13 +54,12 @@ class _ThirdStageState extends State<ThirdStage> {
             const SizedBox(height: 32),
             Container(
               color: AppColors.lightgrey,
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: DropdownButton<String>(
                 value: selectedValue,
                 isExpanded: true,
-                hint: Text('Document Type'),
+                hint: const Text('Document Type'),
                 underline: const SizedBox(),
-
                 icon: Padding(
                   padding: const EdgeInsets.all(11),
                   child: ImageIcon(
@@ -69,7 +68,6 @@ class _ThirdStageState extends State<ThirdStage> {
                     size: 24,
                   ),
                 ),
-
                 items: [
                   'NIN',
                   'International Passport',
@@ -80,8 +78,6 @@ class _ThirdStageState extends State<ThirdStage> {
                     child: Text(items),
                   );
                 }).toList(),
-                // After selecting the desired option,it will
-                // change button value to selected value
                 onChanged: (newValue) {
                   setState(() {
                     selectedValue = newValue!;

@@ -85,23 +85,20 @@ class _ConfirmPasswordViewState extends State<ConfirmPasswordView> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CustomisedField(
-                      hintText: 'Confirm password',
-                      textInputType: TextInputType.text,
-                      textInputAction: TextInputAction.done,
-                      controller: passwordController2,
-                      obscureText: hideText2,
-                      suffixIcon: IconButton(
-                        color: AppColors.darkGrey,
-                        onPressed: () {
-                          hideText2 = !hideText2;
-                          setState(() {});
-                        },
-                        icon: Icon(
-                            hideText2 ? Icons.visibility_off : Icons.visibility),
-                      ),
+                  CustomisedField(
+                    hintText: 'Confirm password',
+                    textInputType: TextInputType.text,
+                    textInputAction: TextInputAction.done,
+                    controller: passwordController2,
+                    obscureText: hideText2,
+                    suffixIcon: IconButton(
+                      color: AppColors.darkGrey,
+                      onPressed: () {
+                        hideText2 = !hideText2;
+                        setState(() {});
+                      },
+                      icon: Icon(
+                          hideText2 ? Icons.visibility_off : Icons.visibility),
                     ),
                   ),
                   const SizedBox(

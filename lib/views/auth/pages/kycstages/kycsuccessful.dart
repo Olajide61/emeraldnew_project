@@ -1,3 +1,4 @@
+import 'package:emerald_newproject/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../widgets/color.dart';
@@ -45,10 +46,12 @@ class _KycSuccessfulViewState extends State<KycSuccessfulView> {
               const SizedBox(height: 39),
               Padding(
                 padding: const EdgeInsets.all(24),
-                child: CustomisedButton('Go to Dashboard',
-                    onPressed: () {},
-                    buttonColor: AppColors.orange,
-                    textColor: AppColors.white),
+                child: CustomisedButton('Go to Dashboard', onPressed: () {
+                  Navigator.pushAndRemoveUntil(context,
+                      MaterialPageRoute(builder: (BuildContext context) {
+                    return const HomeScreen();
+                  }), (route) => false);
+                }, buttonColor: AppColors.orange, textColor: AppColors.white),
               ),
             ],
           ),

@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/color.dart';
 import '../../widgets/customised_button.dart';
-import '../../widgets/customised_field.dart';
+
 
 class GroupGiftOneView extends StatefulWidget {
-  const GroupGiftOneView({super.key});
-
+  const GroupGiftOneView({super.key, required this.controller});
+  final PageController controller;
   @override
   State<GroupGiftOneView> createState() => _GroupGiftOneViewState();
 }
 
 class _GroupGiftOneViewState extends State<GroupGiftOneView> {
+  bool isButtonActive = false;
+  int _currentPage = 0;
+  String? selectedValue;
+  String? dropdownvalue;
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -44,20 +48,48 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomisedField(
-                  enabled: false,
-                  hintText: 'Select GiftCard Type',
-                  suffixIcon: IconButton(
-                    icon: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage('assets/images/drop.png'),
+                Container(
+                  color: AppColors.lightgrey,
+                  child: DropdownButton<String>(
+                    value: selectedValue,
+                    isExpanded: true,
+                    hint: Padding(
+                      padding: const EdgeInsets.only(left: 24),
+                      child: Text(
+                        'Select GiftCard Type',
+                        style: GoogleFonts.openSans(
+                          textStyle: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff9C9C9C)),
+                        ),
                       ),
                     ),
-                    onPressed: () {},
+                    underline: const SizedBox(),
+                    icon: Padding(
+                      padding: const EdgeInsets.all(11),
+                      child: ImageIcon(
+                        const AssetImage('assets/images/drop.png'),
+                        color: AppColors.black,
+                        size: 24,
+                      ),
+                    ),
+                    items: [
+                      'Happy Birthday Card',
+                      'Standard Card',
+                      'Travel Card',
+                    ].map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (newValue) {
+                      setState(() {
+                        selectedValue = newValue!;
+                      });
+                    },
                   ),
-                  textInputType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
                 ),
                 const SizedBox(
                   height: 24,
@@ -149,7 +181,19 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
                 Column(
                   children: [
                     CustomisedButton('Next',
-                        onPressed: () {},
+                        onPressed: selectedValue == null
+                            ? null
+                            : () {
+                                if (_currentPage < 2) {
+                                  widget.controller.nextPage(
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.linear,
+                                  );
+                                  setState(() {
+                                    _currentPage++;
+                                  });
+                                } else {}
+                              },
                         buttonColor: AppColors.orange,
                         textColor: AppColors.white),
                   ],

@@ -1,6 +1,6 @@
-import 'package:emerald_newproject/views/home/pages/allpage.dart';
-import 'package:emerald_newproject/views/home/pages/purchase_page.dart';
-import 'package:emerald_newproject/views/home/pages/topup_page.dart';
+import 'package:emerald_newproject/views/auth/pages/allpage.dart';
+import 'package:emerald_newproject/views/auth/pages/purchase_page.dart';
+import 'package:emerald_newproject/views/auth/pages/topup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/color.dart';
