@@ -1,4 +1,6 @@
-import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/groupgifting/joingift.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/joingift.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/purchase_gift.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../widgets/color.dart';
@@ -168,7 +170,13 @@ class _GroupCardViewState extends State<GroupCardView> {
                     ),
                   const Spacer(),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const PurchaseGiftsView();
+                        },
+                      ));
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),

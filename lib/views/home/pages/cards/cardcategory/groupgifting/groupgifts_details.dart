@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/groupgifting/gift_sent.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/gift_sent.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:emerald_newproject/views/widgets/customised_field.dart';
@@ -77,6 +77,8 @@ class _GroupDetailsViewState extends State<GroupDetailsView> {
               child: Column(
                 children: [
                   CustomisedField(
+                    suffixText: '₦‎ 200,000.00',
+                    enabled: false,
                     hintText: 'Target Amount',
                     textInputType: TextInputType.text,
                     textInputAction: TextInputAction.next,

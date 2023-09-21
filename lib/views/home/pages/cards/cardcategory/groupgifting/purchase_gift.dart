@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/groupgifting/gifting_created.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/gifting_created.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:emerald_newproject/views/widgets/customised_field.dart';
@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PurchaseGiftsView extends StatefulWidget {
-  const PurchaseGiftsView({super.key});
-
+  const PurchaseGiftsView({super.key, });
+  
   @override
   State<PurchaseGiftsView> createState() => _PurchaseGiftsViewState();
 }
 
 class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
+  String? selectedValue;
   final List<String> images = [
     'assets/images/head.png',
     'assets/images/head.png',
@@ -145,6 +146,7 @@ class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 4),
                   Row(
                     children: [
                       for (int i = 0; i < images.length; i++)
@@ -187,14 +189,10 @@ class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
                     height: 62,
                   ),
                   CustomisedButton('Purchase', onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const GiftingCreatedView();
-                        },
-                      ),
-                    );
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const GiftingCreatedView();
+                    }));
                   }, buttonColor: AppColors.orange, textColor: AppColors.white),
                 ],
               ),

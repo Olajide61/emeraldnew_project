@@ -2,7 +2,6 @@ import 'package:emerald_newproject/views/auth/create_view.dart';
 import 'package:emerald_newproject/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../widgets/color.dart';
 import '../widgets/customised_button.dart';
 import '../widgets/customised_field.dart';

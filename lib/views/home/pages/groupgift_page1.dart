@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/color.dart';
 import '../../widgets/customised_button.dart';
 
-
 class GroupGiftOneView extends StatefulWidget {
   const GroupGiftOneView({super.key, required this.controller});
   final PageController controller;
@@ -81,7 +80,10 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
                     ].map((String items) {
                       return DropdownMenuItem(
                         value: items,
-                        child: Text(items),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(items),
+                        ),
                       );
                     }).toList(),
                     onChanged: (newValue) {

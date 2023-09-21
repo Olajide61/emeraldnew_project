@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/customised_button.dart';
 
-
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key, required this.controller});
   final PageController controller;
@@ -87,7 +86,10 @@ class _FirstPageState extends State<FirstPage> {
                     ].map((String items) {
                       return DropdownMenuItem(
                         value: items,
-                        child: Text(items),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(items),
+                        ),
                       );
                     }).toList(),
                     onChanged: (newValue) {

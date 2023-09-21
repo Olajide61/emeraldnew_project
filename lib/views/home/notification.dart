@@ -107,10 +107,13 @@ class _NotificationViewState extends State<NotificationView> {
                       ),
                     ),
                     const Spacer(),
-                    Image.asset(
-                      'assets/images/arrow.png',
-                      height: 24,
-                      width: 24,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'assets/images/arrow.png',
+                        height: 24,
+                        width: 24,
+                      ),
                     ),
                   ],
                 ),
@@ -179,10 +182,13 @@ class _NotificationViewState extends State<NotificationView> {
                       ),
                     ),
                     const Spacer(),
-                    Image.asset(
-                      'assets/images/arrow.png',
-                      height: 24,
-                      width: 24,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'assets/images/arrow.png',
+                        height: 24,
+                        width: 24,
+                      ),
                     ),
                   ],
                 ),

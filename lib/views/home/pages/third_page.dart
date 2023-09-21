@@ -514,16 +514,6 @@ class _ThirdPageState extends State<ThirdPage> {
                                           ),
                                         ),
                                       ),
-                                      Text(
-                                        'Make a donation towards an event',
-                                        style: GoogleFonts.openSans(
-                                          textStyle: TextStyle(
-                                            fontSize: 11.5,
-                                            fontWeight: FontWeight.w400,
-                                            color: AppColors.blackbb,
-                                          ),
-                                        ),
-                                      )
                                     ],
                                   ),
                                   const Spacer(),

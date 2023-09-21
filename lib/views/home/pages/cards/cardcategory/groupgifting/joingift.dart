@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/groupgifting/groupgifts_details.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/groupgifts_details.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -1,13 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:emerald_newproject/views/home/notification.dart';
-import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/group.dart';
-import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/individual.dart';
-import 'package:emerald_newproject/views/profile/accountdetails_view.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/group.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/individual.dart';
+import 'package:emerald_newproject/views/home/pages/history.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../home/kyc_view.dart';
+import '../kyc_view.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -47,20 +47,12 @@ class _DashboardPageState extends State<DashboardPage> {
                         padding: const EdgeInsets.only(top: 34, right: 16),
                         child: Row(
                           children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return const AccountDetailsView();
-                                }));
-                              },
-                              child: CircleAvatar(
-                                backgroundImage:
-                                    const AssetImage('assets/images/head.png'),
-                                child: Container(
-                                  height: 48,
-                                  width: 48,
-                                ),
+                            CircleAvatar(
+                              backgroundImage:
+                                  const AssetImage('assets/images/head.png'),
+                              child: Container(
+                                height: 48,
+                                width: 48,
                               ),
                             ),
                             const SizedBox(width: 22),
@@ -688,21 +680,30 @@ class _DashboardPageState extends State<DashboardPage> {
                       ),
                     ),
                     const Spacer(),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.pinky,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      height: 24,
-                      width: 67,
-                      child: Center(
-                        child: Text(
-                          'See all',
-                          style: GoogleFonts.openSans(
-                            textStyle: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.darkorange,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const HistoryPage();
+                          },
+                        ));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.pinky,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        height: 24,
+                        width: 67,
+                        child: Center(
+                          child: Text(
+                            'See all',
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.darkorange,
+                              ),
                             ),
                           ),
                         ),

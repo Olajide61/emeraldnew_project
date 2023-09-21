@@ -111,7 +111,10 @@ class _GroupGiftTwoViewState extends State<GroupGiftTwoView> {
                     ].map((String items) {
                       return DropdownMenuItem(
                         value: items,
-                        child: Text(items),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(items),
+                        ),
                       );
                     }).toList(),
                     onChanged: (newValue) {

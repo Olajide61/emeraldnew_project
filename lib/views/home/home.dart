@@ -1,6 +1,6 @@
-import 'package:emerald_newproject/views/auth/pages/cards.dart';
-import 'package:emerald_newproject/views/auth/pages/dash.dart';
-import 'package:emerald_newproject/views/auth/pages/history.dart';
+import 'package:emerald_newproject/views/home/pages/cards.dart';
+import 'package:emerald_newproject/views/home/pages/dash.dart';
+import 'package:emerald_newproject/views/home/pages/history.dart';
 import 'package:emerald_newproject/views/profile/profile.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:flutter/material.dart';

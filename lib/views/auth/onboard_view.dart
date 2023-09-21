@@ -4,7 +4,6 @@ import 'package:emerald_newproject/views/widgets/content_model.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../widgets/color.dart';
 
 class OnboardScreen extends StatefulWidget {

@@ -108,7 +108,10 @@ class _SecondPageState extends State<SecondPage> {
                 ].map((String items) {
                   return DropdownMenuItem(
                     value: items,
-                    child: Text(items),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Text(items),
+                    ),
                   );
                 }).toList(),
                 onChanged: (newValue) {

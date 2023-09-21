@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/auth/pages/cards/cardcategory/groupgifting/purchase_gift.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/gifting_created.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/color.dart';
@@ -52,7 +52,6 @@ class _GroupGiftThreeViewState extends State<GroupGiftThreeView> {
               height: 32,
             ),
             const CustomisedField(
-              suffixText: 'jjjjjj',
               hintText: 'Targeted Amount',
               textInputType: TextInputType.text,
               textInputAction: TextInputAction.next,
@@ -73,7 +72,7 @@ class _GroupGiftThreeViewState extends State<GroupGiftThreeView> {
                 context,
                 (MaterialPageRoute(
                   builder: (context) {
-                    return const PurchaseGiftsView();
+                    return const GiftingCreatedView();
                   },
                 )),
               );

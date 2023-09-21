@@ -1,5 +1,5 @@
-import 'package:emerald_newproject/views/auth/pages/cards/active_card.dart';
-import 'package:emerald_newproject/views/auth/pages/cards/disable_card.dart';
+import 'package:emerald_newproject/views/home/pages/cards/active_card.dart';
+import 'package:emerald_newproject/views/home/pages/cards/disable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/color.dart';
