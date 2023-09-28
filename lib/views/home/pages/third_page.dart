@@ -33,9 +33,8 @@ class _ThirdPageState extends State<ThirdPage> {
             height: 16,
           ),
           Image.asset(
-            'assets/images/cardatm.png',
+            'assets/images/card0.png',
             height: 101.673,
-            width: 159,
           ),
           const SizedBox(
             height: 16,

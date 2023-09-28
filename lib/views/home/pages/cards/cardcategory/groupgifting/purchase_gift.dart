@@ -1,4 +1,4 @@
-import 'package:emerald_newproject/views/home/pages/cards/cardcategory/groupgifting/gifting_created.dart';
+import 'package:emerald_newproject/views/home/pages/cards/cardcategory/individual.dart';
 import 'package:emerald_newproject/views/widgets/color.dart';
 import 'package:emerald_newproject/views/widgets/customised_button.dart';
 import 'package:emerald_newproject/views/widgets/customised_field.dart';
@@ -6,13 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PurchaseGiftsView extends StatefulWidget {
-  const PurchaseGiftsView({super.key, });
-  
+  const PurchaseGiftsView({
+    super.key,
+  });
+
   @override
   State<PurchaseGiftsView> createState() => _PurchaseGiftsViewState();
 }
 
 class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
+  final int pageCount = 3;
   String? selectedValue;
   final List<String> images = [
     'assets/images/head.png',
@@ -62,9 +65,8 @@ class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
           children: [
             const SizedBox(height: 68),
             Image.asset(
-              'assets/images/cardatm.png',
+              'assets/images/card0.png',
               height: 101.673,
-              width: 159,
             ),
             const SizedBox(
               height: 16,
@@ -188,12 +190,21 @@ class _PurchaseGiftsViewState extends State<PurchaseGiftsView> {
                   const SizedBox(
                     height: 62,
                   ),
-                  CustomisedButton('Purchase', onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const GiftingCreatedView();
-                    }));
-                  }, buttonColor: AppColors.orange, textColor: AppColors.white),
+                  CustomisedButton('Purchase',
+                      onPressed: height != 200000
+                          ? null
+                          : () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return IndvidualCardView(index: 2);
+                                  },
+                                ),
+                              );
+                            },
+                      buttonColor: AppColors.orange,
+                      textColor: AppColors.white),
                 ],
               ),
             ),

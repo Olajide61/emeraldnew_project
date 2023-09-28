@@ -15,6 +15,7 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
   int _currentPage = 0;
   String? selectedValue;
   String? dropdownvalue;
+  int? selectedCard;
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -93,61 +94,49 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
                     },
                   ),
                 ),
-                const SizedBox(
-                  height: 24,
-                ),
+                const SizedBox(height: 24),
                 Text(
                   'Select GiftCard Design',
                   style: GoogleFonts.openSans(
                     color: AppColors.darkGrey,
                     textStyle: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
+                        fontSize: 14, fontWeight: FontWeight.w600),
                   ),
                 ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'assets/images/cardatm.png',
-                        width: 159,
-                        height: 106.862,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 24,
-                    ),
-                    Expanded(
-                      child: Image.asset(
-                        'assets/images/backatm.png',
-                        width: 159,
-                        height: 106.862,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Image.asset('assets/images/newcard.png',
-                          width: 159, height: 106.862),
-                    ),
-                    const SizedBox(
-                      width: 24,
-                    ),
-                    Expanded(
-                      child: Image.asset('assets/images/card2.png',
-                          width: 159, height: 106.862),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 24,
+                const SizedBox(height: 16),
+                Wrap(
+                  spacing: 24,
+                  runSpacing: 24,
+                  children: [0, 1, 2, 3]
+                      .map(
+                        (e) => GestureDetector(
+                          onTap: () {
+                            selectedCard = e;
+                            setState(() {});
+                          },
+                          child: Opacity(
+                              opacity: selectedCard == e ? 1 : .4,
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/images/card$e.png',
+                                    width: (MediaQuery.of(context).size.width -
+                                            72) /
+                                        2,
+                                    height: 110,
+                                  ),
+                                  if (selectedCard == e)
+                                    const Icon(
+                                      Icons.check_box_outlined,
+                                      color: Colors.green,
+                                      size: 35,
+                                    )
+                                ],
+                              )),
+                        ),
+                      )
+                      .toList(),
                 ),
                 Row(
                   children: [
@@ -162,16 +151,13 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
                       ),
                     ),
                     const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 24),
-                      child: Text(
-                        '₦‎ 2,000.00',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.darkGrey,
-                          textStyle: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                          ),
+                    Text(
+                      '₦‎ 2,000.00',
+                      style: GoogleFonts.openSans(
+                        color: AppColors.darkGrey,
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
@@ -182,22 +168,24 @@ class _GroupGiftOneViewState extends State<GroupGiftOneView> {
                 ),
                 Column(
                   children: [
-                    CustomisedButton('Next',
-                        onPressed: selectedValue == null
-                            ? null
-                            : () {
-                                if (_currentPage < 2) {
-                                  widget.controller.nextPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.linear,
-                                  );
-                                  setState(() {
-                                    _currentPage++;
-                                  });
-                                } else {}
-                              },
-                        buttonColor: AppColors.orange,
-                        textColor: AppColors.white),
+                    CustomisedButton(
+                      'Next',
+                      onPressed: selectedValue == null || selectedCard == null
+                          ? null
+                          : () {
+                              if (_currentPage < 2) {
+                                widget.controller.nextPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.linear,
+                                );
+                                setState(() {
+                                  _currentPage++;
+                                });
+                              } else {}
+                            },
+                      buttonColor: AppColors.orange,
+                      textColor: AppColors.white,
+                    ),
                   ],
                 ),
               ],

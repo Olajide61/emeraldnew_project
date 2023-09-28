@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 32,
                   width: 32,
                   image: const AssetImage(
-                    'assets/images/card1.png',
+                    'assets/images/cards.png',
                   ),
                 ),
                 label: 'Cards'),

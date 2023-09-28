@@ -6,15 +6,23 @@ import '../../second_page.dart';
 import '../../third_page.dart';
 
 class IndvidualCardView extends StatefulWidget {
-  const IndvidualCardView({super.key});
+  const IndvidualCardView({super.key, this.index = 0});
 
+  final int index;
   @override
   State<IndvidualCardView> createState() => _IndvidualCardViewState();
 }
 
 class _IndvidualCardViewState extends State<IndvidualCardView> {
   int _currentPage = 0;
-  final PageController _controller = PageController(initialPage: 0);
+  PageController _controller = PageController(initialPage: 0);
+
+  @override
+  void initState() {
+    _controller = PageController(initialPage: widget.index);
+    _currentPage = widget.index;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,27 +76,27 @@ class _IndvidualCardViewState extends State<IndvidualCardView> {
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color:  _currentPage >= 0 ? AppColors.green : AppColors.w,
+                      color: _currentPage >= 0 ? AppColors.green : AppColors.w,
                     ),
                     height: 30,
                     width: 30,
                     child: Center(
-                      child:  _currentPage > 0
-                        ? const Icon(
-                            Icons.check_rounded,
-                            color: Colors.white,
-                            size: 20,
-                          )
-                        : Text(
-                        '1',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
+                      child: _currentPage > 0
+                          ? const Icon(
+                              Icons.check_rounded,
+                              color: Colors.white,
+                              size: 20,
+                            )
+                          : Text(
+                              '1',
+                              style: GoogleFonts.openSans(
+                                color: AppColors.white,
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -103,26 +111,26 @@ class _IndvidualCardViewState extends State<IndvidualCardView> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color:
-                             _currentPage >= 1 ? AppColors.green : AppColors.w),
+                            _currentPage >= 1 ? AppColors.green : AppColors.w),
                     height: 30,
                     width: 30,
                     child: Center(
-                      child:  _currentPage > 1
+                      child: _currentPage > 1
                           ? const Icon(
                               Icons.check_rounded,
                               color: Colors.white,
                               size: 20,
                             )
-                          :Text(
-                        '2',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
+                          : Text(
+                              '2',
+                              style: GoogleFonts.openSans(
+                                color: AppColors.white,
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -137,26 +145,26 @@ class _IndvidualCardViewState extends State<IndvidualCardView> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color:
-                           _currentPage >= 2 ? AppColors.green : AppColors.w),
+                            _currentPage >= 2 ? AppColors.green : AppColors.w),
                     height: 30,
                     width: 30,
                     child: Center(
-                      child:  _currentPage > 2
+                      child: _currentPage > 2
                           ? const Icon(
                               Icons.check_rounded,
                               color: Colors.white,
                               size: 20,
                             )
-                          :Text(
-                        '3',
-                        style: GoogleFonts.openSans(
-                          color: AppColors.white,
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
+                          : Text(
+                              '3',
+                              style: GoogleFonts.openSans(
+                                color: AppColors.white,
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                 ],

@@ -19,7 +19,7 @@ class _FirstPageState extends State<FirstPage> {
   int _currentPage = 0;
   String? selectedValue;
   String? dropdownvalue;
-
+  int? selectedCard;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,45 +115,39 @@ class _FirstPageState extends State<FirstPage> {
                 const SizedBox(
                   height: 16,
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'assets/images/cardatm.png',
-                        width: 159,
-                        height: 106.86,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 24,
-                    ),
-                    Expanded(
-                      child: Image.asset(
-                        'assets/images/backatm.png',
-                        width: 159,
-                        height: 106.86,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Image.asset('assets/images/newcard.png',
-                          width: 159, height: 106.86),
-                    ),
-                    const SizedBox(
-                      width: 24,
-                    ),
-                    Expanded(
-                      child: Image.asset('assets/images/card2.png',
-                          width: 159, height: 106.86),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 24,
+                Wrap(
+                  spacing: 24,
+                  runSpacing: 24,
+                  children: [0, 1, 2, 3]
+                      .map(
+                        (e) => GestureDetector(
+                          onTap: () {
+                            selectedCard = e;
+                            setState(() {});
+                          },
+                          child: Opacity(
+                              opacity: selectedCard == e ? 1 : .4,
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/images/card$e.png',
+                                    width: (MediaQuery.of(context).size.width -
+                                            72) /
+                                        2,
+                                    height: 110,
+                                  ),
+                                  if (selectedCard == e)
+                                    const Icon(
+                                      Icons.check_box_outlined,
+                                      color: Colors.green,
+                                      size: 35,
+                                    )
+                                ],
+                              )),
+                        ),
+                      )
+                      .toList(),
                 ),
                 Row(
                   children: [
@@ -346,7 +340,7 @@ class _FirstPageState extends State<FirstPage> {
                       height: 8,
                     ),
                     CustomisedButton('Next',
-                        onPressed: selectedValue == null
+                        onPressed: selectedValue == null || selectedCard == null
                             ? null
                             : () {
                                 if (_currentPage < 2) {

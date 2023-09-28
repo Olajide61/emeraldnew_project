@@ -49,7 +49,7 @@ class _NotificationViewState extends State<NotificationView> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 24, right: 24, top: 32),
+              padding: const EdgeInsets.only(top: 32),
               child: Container(
                 decoration: BoxDecoration(color: AppColors.lightgrey),
                 height: 70,
@@ -122,76 +122,73 @@ class _NotificationViewState extends State<NotificationView> {
             const SizedBox(
               height: 12,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 24, right: 24),
-              child: Container(
-                decoration: BoxDecoration(color: AppColors.lightgrey),
-                height: 70,
-                width: 390,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 32),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: AppColors.purple,
-                        ),
-                        height: 44.774,
-                        width: 44.774,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Image.asset(
-                            'assets/images/security.png',
-                            height: 24,
-                            width: 24,
-                          ),
+            Container(
+              decoration: BoxDecoration(color: AppColors.lightgrey),
+              height: 70,
+              width: 390,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 32),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: AppColors.purple,
+                      ),
+                      height: 44.774,
+                      width: 44.774,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Image.asset(
+                          'assets/images/security.png',
+                          height: 24,
+                          width: 24,
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Complete Your Profile',
-                            style: GoogleFonts.openSans(
-                              textStyle: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.black,
-                              ),
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Complete Your Profile',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.black,
                             ),
                           ),
-                          Text(
-                            'Completing your profile is essential as it allows\nus to better understand your preferences...',
-                            style: GoogleFonts.openSans(
-                              textStyle: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.darkGrey,
-                              ),
+                        ),
+                        Text(
+                          'Completing your profile is essential as it allows\nus to better understand your preferences...',
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.darkGrey,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'assets/images/arrow.png',
-                        height: 24,
-                        width: 24,
-                      ),
+                  ),
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/images/arrow.png',
+                      height: 24,
+                      width: 24,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
